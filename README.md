@@ -1,7 +1,7 @@
 # HTML_CSS
 学习html和css 和 相应的面试题
 
-# 1. HTML5为什么需要写<!DOCTYPE HTML>？
+# 1. HTML5为什么需要写`<!DOCTYPE HTML>`？
 - 使浏览器进入标准模式，阻止进入混杂模式
 - 让浏览器使用最新的HTML5标准来解析渲染页面
 
