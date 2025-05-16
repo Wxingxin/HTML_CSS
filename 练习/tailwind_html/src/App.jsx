@@ -1,9 +1,12 @@
+import Login_1 from "./page/Login_1"
+
 const App = () => {
   return (
     <div>
-      <h1 class="text-3xl font-bold underline">Hello world!</h1>
+      <Login_1/>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
+
