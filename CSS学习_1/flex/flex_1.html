@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>响应式卡片网格</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3B82F6",
+              secondary: "#10B981",
+              accent: "#F59E0B",
+              dark: "#1F2937",
+              light: "#F9FAFB",
+            },
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+        .card-hover {
+          @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+        }
+        .btn-primary {
+          @apply bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-all duration-300;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 font-inter">
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto px-4 py-6">
+        <h1 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark">
+          探索产品系列
+        </h1>
+        <p class="text-gray-600 mt-2 max-w-2xl">
+          发现我们精心设计的产品，满足您的各种需求。每一款产品都凝聚了我们的匠心与创新。
+        </p>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+      <!-- 筛选器 -->
+      <div class="flex flex-wrap gap-4 mb-8 items-center justify-between">
+        <div class="flex flex-wrap gap-2">
+          <button class="px-4 py-2 bg-primary text-white rounded-lg">
+            全部
+          </button>
+          <button
+            class="px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            热门
+          </button>
+          <button
+            class="px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            新品
+          </button>
+          <button
+            class="px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            特惠
+          </button>
+        </div>
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="搜索产品..."
+            class="pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+          />
+          <i
+            class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+          ></i>
+        </div>
+      </div>
+
+      <!-- 卡片网格 -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      >
+        <!-- 卡片1 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+          <div class="relative">
+            <img
+              src="https://picsum.photos/400/300?random=1"
+              alt="产品图片"
+              class="w-full h-52 object-cover"
+            />
+            <div
+              class="absolute top-3 right-3 bg-accent text-white text-xs font-bold px-2 py-1 rounded"
+            >
+              热门
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">智能手表 Pro</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              全面健康监测，支持多种运动模式，长续航能力。
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-xl font-bold text-primary">¥1,299</span>
+              <button class="btn-primary flex items-center gap-1">
+                <i class="fa fa-shopping-cart"></i> 加入购物车
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片2 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+          <div class="relative">
+            <img
+              src="https://picsum.photos/400/300?random=2"
+              alt="产品图片"
+              class="w-full h-52 object-cover"
+            />
+            <div
+              class="absolute top-3 right-3 bg-secondary text-white text-xs font-bold px-2 py-1 rounded"
+            >
+              新品
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">无线耳机 Max</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              主动降噪，HiFi音质，IPX7防水，长达30小时续航。
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-xl font-bold text-primary">¥899</span>
+              <button class="btn-primary flex items-center gap-1">
+                <i class="fa fa-shopping-cart"></i> 加入购物车
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片3 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+          <div class="relative">
+            <img
+              src="https://picsum.photos/400/300?random=3"
+              alt="产品图片"
+              class="w-full h-52 object-cover"
+            />
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">蓝牙音箱</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              360°环绕立体声，防水设计，便携户外使用。
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-xl font-bold text-primary">¥499</span>
+              <button class="btn-primary flex items-center gap-1">
+                <i class="fa fa-shopping-cart"></i> 加入购物车
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片4 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+          <div class="relative">
+            <img
+              src="https://picsum.photos/400/300?random=4"
+              alt="产品图片"
+              class="w-full h-52 object-cover"
+            />
+            <div
+              class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+            >
+              -20%
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">智能灯泡套装</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              支持语音控制，1600万色，可调亮度和色温。
+            </p>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-xl font-bold text-primary">¥199</span>
+                <span class="text-gray-400 line-through text-sm ml-2"
+                  >¥249</span
+                >
+              </div>
+              <button class="btn-primary flex items-center gap-1">
+                <i class="fa fa-shopping-cart"></i> 加入购物车
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片5 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+          <div class="relative">
+            <img
+              src="https://picsum.photos/400/300?random=5"
+              alt="产品图片"
+              class="w-full h-52 object-cover"
+            />
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">便携式充电宝</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              20000mAh大容量，双向快充，数显电量。
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-xl font-bold text-primary">¥159</span>
+              <button class="btn-primary flex items-center gap-1">
+                <i class="fa fa-shopping-cart"></i> 加入购物车
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片6 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+          <div class="relative">
+            <img
+              src="https://picsum.photos/400/300?random=6"
+              alt="产品图片"
+              class="w-full h-52 object-cover"
+            />
+            <div
+              class="absolute top-3 right-3 bg-secondary text-white text-xs font-bold px-2 py-1 rounded"
+            >
+              新品
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">智能门锁</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              指纹识别，APP远程控制，多重解锁方式。
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-xl font-bold text-primary">¥1,099</span>
+              <button class="btn-primary flex items-center gap-1">
+                <i class="fa fa-shopping-cart"></i> 加入购物车
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片7 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+          <div class="relative">
+            <img
+              src="https://picsum.photos/400/300?random=7"
+              alt="产品图片"
+              class="w-full h-52 object-cover"
+            />
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">游戏手柄</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              无线连接，可自定义按键，长续航，兼容多平台。
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-xl font-bold text-primary">¥299</span>
+              <button class="btn-primary flex items-center gap-1">
+                <i class="fa fa-shopping-cart"></i> 加入购物车
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片8 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+          <div class="relative">
+            <img
+              src="https://picsum.photos/400/300?random=8"
+              alt="产品图片"
+              class="w-full h-52 object-cover"
+            />
+            <div
+              class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+            >
+              -15%
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-2">机械键盘</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              青轴，RGB背光，全键无冲，双色注塑键帽。
+            </p>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-xl font-bold text-primary">¥349</span>
+                <span class="text-gray-400 line-through text-sm ml-2"
+                  >¥409</span
+                >
+              </div>
+              <button class="btn-primary flex items-center gap-1">
+                <i class="fa fa-shopping-cart"></i> 加入购物车
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 加载更多 -->
+      <div class="mt-12 text-center">
+        <button class="btn-primary px-8 py-3 flex items-center gap-2 mx-auto">
+          <i class="fa fa-refresh"></i> 加载更多产品
+        </button>
+      </div>
+    </main>
+
+    <footer class="bg-dark text-white mt-16">
+      <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="text-lg font-bold mb-4">关于我们</h4>
+            <p class="text-gray-400">
+              我们致力于提供高品质的电子产品，满足您的日常生活和工作需求。
+            </p>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">联系我们</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-center gap-2">
+                <i class="fa fa-map-marker"></i> 北京市海淀区科技园区
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa fa-phone"></i> 400-123-4567
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa fa-envelope"></i> contact@example.com
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">快速链接</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors">首页</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >产品中心</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >关于我们</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >联系我们</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">关注我们</h4>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <i class="fa fa-weixin"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <i class="fa fa-weibo"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <i class="fa fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors"
+              >
+                <i class="fa fa-youtube-play"></i>
+              </a>
+            </div>
+            <p class="mt-4 text-gray-400">订阅我们的新闻通讯</p>
+            <div class="mt-2 flex">
+              <input
+                type="email"
+                placeholder="您的邮箱地址"
+                class="px-4 py-2 rounded-l-lg focus:outline-none flex-1"
+              />
+              <button
+                class="bg-primary px-4 py-2 rounded-r-lg hover:bg-primary/90 transition-colors"
+              >
+                <i class="fa fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2023 电子产品商城. 保留所有权利.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // 卡片悬停动画效果
+      document.querySelectorAll(".card-hover").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.transform = "translateY(-5px)";
+          card.style.boxShadow =
+            "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "translateY(0)";
+          card.style.boxShadow =
+            "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)";
+        });
+      });
+    </script>
+  </body>
+</html>

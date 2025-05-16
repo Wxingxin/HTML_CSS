@@ -1,0 +1,129 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  display: flex; /* 使 body 成为 flex 容器 */
+  justify-content: center; /* 水平居中内容 */
+  align-items: center; /* 垂直居中内容 */
+  min-height: 100vh; /* 确保 body 至少占据视口的高度 */
+}
+
+.container {
+  width: 100%;
+  max-width: 400px; /* 限制容器的最大宽度 */
+  padding: 20px;
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex; /* 使登录框成为 flex 容器 */
+  flex-direction: column; /* 使内容垂直排列 */
+  align-items: stretch; /* 使子元素在交叉轴方向拉伸以填充容器 */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block; /* 使 label 独占一行 */
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+  width: calc(100% - 12px); /* 考虑内边距 */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* 确保 padding 和 border 不会增加元素的总宽度 */
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.options {
+  margin-top: 15px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+.options a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+.options span {
+  margin: 0 10px;
+}
+
+/* body:
+
+display: flex;: 使 body 成为一个 flex 容器。
+justify-content: center;: 将 body 的直接子元素（.container）在水平方向居中。
+align-items: center;: 将 body 的直接子元素在垂直方向居中。
+min-height: 100vh;: 确保 body 至少占据整个视口的高度，这样登录框才能在垂直方向上真正居中。
+.container:
+
+width: 100%;: 在小屏幕上占据全部宽度。
+max-width: 400px;: 在大屏幕上限制登录框的最大宽度，使其不会显得过宽。
+padding: 20px;: 为容器添加一些内边距。
+.login-box:
+
+background-color: #fff;: 设置背景颜色为白色。
+padding: 30px;: 为登录框添加内边距。
+border-radius: 8px;: 添加圆角。
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);: 添加简单的阴影效果。
+display: flex;: 使登录框成为一个 flex 容器。
+flex-direction: column;: 将登录框内部的元素（标题、表单等）垂直排列。
+align-items: stretch;: 使表单内的输入框和按钮在水平方向上拉伸以填充登录框的宽度。
+.input-group:
+
+margin-bottom: 15px;: 为每个输入组添加底部外边距，使其之间有间隔。
+.input-group label:
+
+display: block;: 使标签独占一行，位于输入框上方。
+.input-group input[type="text"], .input-group input[type="password"]:
+
+width: calc(100% - 12px);: 设置输入框的宽度为父容器的 100% 减去左右内边距（2 * 6px）。
+padding: 10px;: 添加内边距。
+box-sizing: border-box;: 关键属性，确保 padding 和 border 不会影响元素的总宽度。
+button[type="submit"]:
+
+基本的按钮样式。
+.options:
+
+margin-top: 15px;: 与表单之间添加顶部外边距。
+text-align: center;: 使“忘记密码”和“注册账号”居中。
+.options a 和 .options span:
+
+简单的链接样式和分隔符样式。 */
