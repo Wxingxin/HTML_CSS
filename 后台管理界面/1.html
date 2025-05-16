@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后台管理界面</title>
+    <link rel="stylesheet" href="./1.css" />
+    <!-- 可以引入图标库，例如 Font Awesome -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+  </head>
+  <body>
+    <div class="admin-layout">
+      <!-- 侧边栏 -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>管理后台</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="#" class="active"
+                ><i class="fas fa-tachometer-alt"></i> 仪表盘</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-users"></i> 用户管理</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-box"></i> 产品管理</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-file-alt"></i> 订单管理</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-chart-bar"></i> 统计报表</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-cog"></i> 系统设置</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <p>© 2023 YourCompany</p>
+        </div>
+      </aside>
+
+      <!-- 主内容区 -->
+      <div class="main-content-wrapper">
+        <!-- 顶部栏 -->
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
+            <input type="text" placeholder="搜索..." />
+          </div>
+          <div class="topbar-right">
+            <a href="#" class="notification-icon"
+              ><i class="fas fa-bell"></i><span class="badge">3</span></a
+            >
+            <div class="user-profile">
+              <img src="https://via.placeholder.com/30" alt="User Avatar" />
+              <span>管理员</span>
+              <i class="fas fa-caret-down"></i>
+              <!-- 下拉菜单 (纯CSS较难实现完整交互, 通常需要JS) -->
+              <ul class="dropdown-menu">
+                <li><a href="#">个人资料</a></li>
+                <li><a href="#">设置</a></li>
+                <li><a href="#">退出登录</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- 内容区域 -->
+        <main class="content-area">
+          <h1>仪表盘</h1>
+          <p>欢迎来到后台管理系统。</p>
+
+          <div class="widgets-container">
+            <div class="widget">
+              <h3>总用户数</h3>
+              <p class="widget-value">1,234</p>
+            </div>
+            <div class="widget">
+              <h3>今日订单</h3>
+              <p class="widget-value">56</p>
+            </div>
+            <div class="widget">
+              <h3>总销售额</h3>
+              <p class="widget-value">¥88,888</p>
+            </div>
+            <div class="widget">
+              <h3>待处理</h3>
+              <p class="widget-value">12</p>
+            </div>
+          </div>
+
+          <div class="data-table-container">
+            <h2>最新订单</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>订单ID</th>
+                  <th>客户名称</th>
+                  <th>金额</th>
+                  <th>状态</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#001</td>
+                  <td>张三</td>
+                  <td>¥199.00</td>
+                  <td><span class="status completed">已完成</span></td>
+                  <td><a href="#">详情</a></td>
+                </tr>
+                <tr>
+                  <td>#002</td>
+                  <td>李四</td>
+                  <td>¥299.00</td>
+                  <td><span class="status pending">待付款</span></td>
+                  <td><a href="#">详情</a></td>
+                </tr>
+                <tr>
+                  <td>#003</td>
+                  <td>王五</td>
+                  <td>¥99.00</td>
+                  <td><span class="status processing">处理中</span></td>
+                  <td><a href="#">详情</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- 如果需要交互，例如侧边栏切换，通常需要少量JS -->
+    <!-- <script>
+        // 简单的侧边栏切换示例 (可选)
+        // const sidebarToggle = document.getElementById('sidebarToggle');
+        // const sidebar = document.querySelector('.sidebar');
+        // const adminLayout = document.querySelector('.admin-layout');
+        //
+        // sidebarToggle.addEventListener('click', () => {
+        //     sidebar.classList.toggle('collapsed');
+        //     adminLayout.classList.toggle('sidebar-collapsed');
+        // });
+    </script> -->
+  </body>
+</html>
