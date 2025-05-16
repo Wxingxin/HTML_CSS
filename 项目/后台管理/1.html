@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后台管理系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./1.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- 侧边栏 -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div
+            class="w-8 h-8 bg-primary rounded-md flex items-center justify-center"
+          >
+            <i class="fa fa-cogs text-white"></i>
+          </div>
+          <h1>管理系统</h1>
+        </div>
+
+        <nav>
+          <ul class="menu">
+            <li>
+              <a href="#" class="active"
+                ><i class="fa fa-tachometer mr-3"></i>仪表盘</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-users mr-3"></i>用户管理</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-shopping-cart mr-3"></i>订单管理</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-product-hunt mr-3"></i>产品管理</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-bar-chart mr-3"></i>数据分析</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-cog mr-3"></i>系统设置</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- 主内容区 -->
+      <main class="main-content">
+        <!-- 顶部导航栏 -->
+        <header class="topbar">
+          <div class="menu-toggle" id="menu-toggle">
+            <i class="fa fa-bars"></i>
+          </div>
+
+          <div class="search-bar">
+            <input type="text" placeholder="搜索..." />
+            <i class="fa fa-search"></i>
+          </div>
+
+          <div class="user-menu">
+            <div class="user-avatar">JD</div>
+            <span>John Doe</span>
+            <i class="fa fa-angle-down ml-2"></i>
+          </div>
+        </header>
+
+        <!-- 内容区域 -->
+        <div class="content">
+          <h1 class="text-2xl font-bold mb-6">仪表盘概览</h1>
+
+          <!-- 统计卡片 -->
+          <div class="dashboard-cards">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">总用户数</div>
+                <div class="card-icon">
+                  <i class="fa fa-users"></i>
+                </div>
+              </div>
+              <div class="card-value">12,543</div>
+              <div class="card-footer">
+                <span class="positive"
+                  ><i class="fa fa-arrow-up"></i> 12.5%</span
+                >
+                较上月
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">订单总数</div>
+                <div class="card-icon">
+                  <i class="fa fa-shopping-cart"></i>
+                </div>
+              </div>
+              <div class="card-value">3,892</div>
+              <div class="card-footer">
+                <span class="positive"
+                  ><i class="fa fa-arrow-up"></i> 8.2%</span
+                >
+                较上月
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">总收入</div>
+                <div class="card-icon">
+                  <i class="fa fa-money"></i>
+                </div>
+              </div>
+              <div class="card-value">¥156,890</div>
+              <div class="card-footer">
+                <span class="positive"
+                  ><i class="fa fa-arrow-up"></i> 16.3%</span
+                >
+                较上月
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">退货率</div>
+                <div class="card-icon">
+                  <i class="fa fa-exchange"></i>
+                </div>
+              </div>
+              <div class="card-value">4.8%</div>
+              <div class="card-footer">
+                <span class="negative"
+                  ><i class="fa fa-arrow-up"></i> 1.2%</span
+                >
+                较上月
+              </div>
+            </div>
+          </div>
+
+          <!-- 最近订单表格 -->
+          <div class="data-table">
+            <div class="table-header">
+              <div class="table-title">最近订单</div>
+              <div class="table-controls">
+                <button class="btn btn-primary">导出</button>
+                <button class="btn btn-outline">筛选</button>
+              </div>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>订单ID</th>
+                  <th>客户</th>
+                  <th>日期</th>
+                  <th>金额</th>
+                  <th>状态</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#ORD-2023-1054</td>
+                  <td>张三</td>
+                  <td>2023-05-10</td>
+                  <td>¥2,450.00</td>
+                  <td><span class="status status-active">已完成</span></td>
+                  <td>
+                    <button class="text-primary hover:text-primary/80">
+                      查看
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#ORD-2023-1053</td>
+                  <td>李四</td>
+                  <td>2023-05-09</td>
+                  <td>¥1,890.00</td>
+                  <td><span class="status status-active">已完成</span></td>
+                  <td>
+                    <button class="text-primary hover:text-primary/80">
+                      查看
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#ORD-2023-1052</td>
+                  <td>王五</td>
+                  <td>2023-05-08</td>
+                  <td>¥3,620.00</td>
+                  <td><span class="status status-pending">处理中</span></td>
+                  <td>
+                    <button class="text-primary hover:text-primary/80">
+                      查看
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#ORD-2023-1051</td>
+                  <td>赵六</td>
+                  <td>2023-05-07</td>
+                  <td>¥980.00</td>
+                  <td><span class="status status-inactive">已取消</span></td>
+                  <td>
+                    <button class="text-primary hover:text-primary/80">
+                      查看
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#ORD-2023-1050</td>
+                  <td>孙七</td>
+                  <td>2023-05-06</td>
+                  <td>¥1,250.00</td>
+                  <td><span class="status status-active">已完成</span></td>
+                  <td>
+                    <button class="text-primary hover:text-primary/80">
+                      查看
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // 侧边栏切换
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const sidebar = document.getElementById("sidebar");
+          sidebar.classList.toggle("open");
+        });
+
+      document
+        .getElementById("close-sidebar")
+        .addEventListener("click", function () {
+          const sidebar = document.getElementById("sidebar");
+          sidebar.classList.remove("open");
+        });
+    </script>
+  </body>
+</html>
