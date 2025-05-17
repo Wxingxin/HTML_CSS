@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Assuming Font Awesome is linked elsewhere, or add a CDN link here -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./3.css">
+    <title>Apple Project</title>
+
+  </head>
+  <body>
+    <!-- 顶部通知栏 -->
+    <div class="bg-apple-accent">
+      选购新款 Iphone 14 和 Iphone 14 Plus， 享受 150 元 到 1100 元 不等的优惠。
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="mobile-menu">
+          <i class="fa fa-bars"></i>
+        </div>
+        <a href="#" class="navbar-item"><i class="fa fa-apple"></i></a>
+        <!-- Removed text-xl, handled in CSS -->
+        <!-- Consider correcting navber-items to navbar-items in HTML -->
+        <div class="navbar-items hindden">
+          <!-- Typo: navber-items -->
+          <a href="#" class="navbar-item">商店</a>
+          <!-- Typo: 商定 -->
+          <a href="#" class="navbar-item">Mac</a>
+          <a href="#" class="navbar-item">iPad</a>
+          <a href="#" class="navbar-item">iPhone</a>
+          <a href="#" class="navbar-item">Watch</a>
+          <a href="#" class="navbar-item">Vision</a>
+          <a href="#" class="navbar-item">AirPods</a>
+          <a href="#" class="navbar-item">TV 与家居</a>
+          <a href="#" class="navbar-item">娱乐</a>
+          <a href="#" class="navbar-item">配件</a>
+          <a href="#" class="navbar-item">支持</a>
+        </div>
+        <a href="#" class="navbar-item"><i class="fa fa-search"></i></a>
+        <a href="#" class="navbar-item"><i class="fa fa-shopping-bag"></i></a>
+      </div>
+    </nav>
+
+    <!-- 主要的内容 -->
+    <div class="main-content">
+      <!-- iphone 14 Pro section -->
+      <section class="product-section product-section-dark">
+        <h2 class="product-title">iPhone 14 Pro</h2>
+        <p class="product-subtitle">一切都超卓非凡</p>
+        <div class="product-links">
+          <a href="#" class="product-link">了解更多</a>
+          <a href="#" class="product-link">购买</a>
+        </div>
+        <div class="product-image-container">
+          <img
+            src="https://www.apple.com/v/iphone-14-pro/c/images/overview/hero/hero_iphone_14_pro__e0act2165xqq_large.jpg"
+            alt="Iphone 14 Pro"
+            class="product-image"
+          />
+        </div>
+      </section>
+
+      <!-- iphone 14 section -->
+      <section class="product-section">
+        <!-- Changed to light background -->
+        <h2 class="product-title">iPhone 14</h2>
+        <p class="product-subtitle">精彩，随处可见</p>
+        <div class="product-links">
+          <a href="#" class="product-link">了解更多</a>
+          <a href="#" class="product-link">购买</a>
+        </div>
+        <div class="product-image-container">
+          <img
+            src="../../picture/css/5.jpg"
+            width="1116px"
+            height="926px"
+            alt="Iphone 14"
+            class="product-image"
+          />
+        </div>
+      </section>
+
+      <!-- apple watch series 8 -->
+      <section class="product-section product-section-dark">
+        <h2 class="product-title">Apple Watch Series 8</h2>
+        <p class="product-subtitle">健康，领先一步。</p>
+        <!-- Added example subtitle -->
+        <div class="product-links">
+          <a href="#" class="product-link">了解更多</a>
+          <a href="#" class="product-link">购买</a>
+        </div>
+        <div class="product-image-container">
+          <img
+            src="../../picture/css/7.jpg"
+            width="1116px"
+            height="926px"
+            class="product-image"
+          />
+        </div>
+      </section>
+
+      <!-- 产品网格区域 -->
+      <div class="product-grid">
+        <!-- mac studio -->
+        <div class="grid-item">
+          <!-- default light background -->
+          <div>
+            <!-- Content wrapper for flex grow on subtitle -->
+            <h3 class="grid-title">Mac Studio</h3>
+            <p class="grid-subtitle">强劲动力，创意从心所欲。</p>
+            <div class="grid-links">
+              <a href="#" class="grid-link">了解更多</a>
+              <a href="#" class="grid-link">购买</a>
+            </div>
+          </div>
+          <img
+            src="../../picture/css/8.jpg"
+            alt="mac studio"
+            class="grid-image"
+          />
+        </div>
+
+        <!-- ipad pro -->
+        <div class="grid-item dark">
+          <!-- example of a dark grid item -->
+          <div>
+            <h3 class="grid-title">iPad Pro</h3>
+            <p class="grid-subtitle">搭载 M2 芯片，表现超乎想象。</p>
+            <div class="grid-links">
+              <a href="#" class="grid-link">了解更多</a>
+              <a href="#" class="grid-link">购买</a>
+            </div>
+          </div>
+          <img
+            src='../../picture/css/9.jpg'
+            alt="ipad pro"
+            class="grid-image"
+          />
+        </div>
+
+        <!-- airpods max - light -->
+        <div class="grid-item">
+          <div>
+            <h3 class="grid-title">AirPods Max</h3>
+            <p class="grid-subtitle">全然沉浸的聆听体验。</p>
+            <div class="grid-links">
+              <a href="#" class="grid-link">了解更多</a>
+              <a href="#" class="grid-link">购买</a>
+            </div>
+          </div>
+          <img
+            src="https://www.apple.com/v/airpods-max/e/images/overview/hero__gnfk5g59t0qe_large.png"
+            alt="airpods max"
+            class="grid-image"
+          />
+        </div>
+
+        <!-- apple card - dark -->
+        <div class="grid-item dark">
+          <div>
+            <h3 class="grid-title">Apple Card</h3>
+            <p class="grid-subtitle">简单、透明的信用卡。</p>
+            <div class="grid-links">
+              <a href="#" class="grid-link">了解更多</a>
+              <a href="#" class="grid-link">申请</a>
+            </div>
+          </div>
+          <img
+            src='../../picture/css/10.jpg'
+            alt="apple card"
+            class="grid-image"
+          />
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-text">
+          <p>
+            1. 优惠金额是按iPad Air (第五代)
+            10.9英寸无线局域网机型的标价计算。优惠活动内容可能更新，请以实际活动为准。
+          </p>
+          <p>
+            2. 购买符合条件的 Mac 或 iPad，可享最高 12
+            期免息分期付款。该免息分期服务由指定金融机构提供，可能需要符合相应资格要求。具体条款和条件适用。
+          </p>
+          <p>
+            3.
+            为保护听力，建议避免长时间在高音量条件下使用耳机。有关安全聆听的更多信息，请访问
+            apple.com/sound。
+          </p>
+          <p>
+            Apple
+            保留在供应充足的情况下自行决定提供等值替换产品的权利。所有换购交易均须遵守
+            Apple 或 Apple
+            换购活动合作伙伴的相关条款和条件。某些地区可能无法享受此项服务。店内换购需要有效身份证件。Apple
+            或其换购活动合作伙伴保留出于任何原因拒绝或限制任何换购交易
+            (及任何相关优惠)
+            的权利。如需了解有关设备换购及回收服务的更多信息，请咨询 Apple
+            换购活动合作伙伴。
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4 class="footer-column-title">选购和了解</h4>
+            <!-- Changed title -->
+            <ul class="footer-column-list">
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">商店</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Mac</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">iPad</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">iPhone</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Watch</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Vision</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">AirPods</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">TV 与家居</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">AirTag</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">配件</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">礼品卡</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-column-title">Apple钱包</h4>
+            <!-- Changed title -->
+            <ul class="footer-column-list">
+              <!-- Corrected lu to ul -->
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">钱包</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Apple Card</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Apple Pay</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Apple Cash</a>
+              </li>
+            </ul>
+            <h4 class="footer-column-title" style="margin-top: 1.2em">账户</h4>
+            <ul class="footer-column-list">
+              <!-- Corrected lu to ul -->
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">管理你的Apple ID</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Apple Store 账户</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">iCloud.com</a>
+              </li>
+              <!-- Typo: footer-cloumn-item -->
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-column-title">Apple Store</h4>
+            <!-- Changed title -->
+            <ul class="footer-column-list">
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">查找零售店</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">在线选购</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Genius Bar 天才吧</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Today at Apple</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Apple 夏令营</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link"
+                  >Apple Trade In 换购计划</a
+                >
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">订单状态</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">选购帮助</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-column-title">Apple价值观</h4>
+            <ul class="footer-column-list">
+              <!-- Corrected lu to ul -->
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">辅助功能</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">教育</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">环境</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">包容性和多样性</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">隐私</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">供应商责任</a>
+              </li>
+              <!-- Changed text -->
+            </ul>
+            <h4 class="footer-column-title" style="margin-top: 1.2em">
+              关于Apple
+            </h4>
+            <ul class="footer-column-list">
+              <!-- Corrected lu to ul -->
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Newsroom</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Apple 管理层</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">工作机会</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">职业道德与合规</a>
+              </li>
+              <!-- Typo -->
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">活动</a>
+              </li>
+              <!-- Changed -->
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">联系 Apple</a>
+              </li>
+              <!-- Typo -->
+            </ul>
+          </div>
+          <div class="footer-column">
+            <!-- Added a 5th column for better balance like Apple.com -->
+            <h4 class="footer-column-title">商务应用</h4>
+            <ul class="footer-column-list">
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Apple 与商务</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">选购商务产品</a>
+              </li>
+            </ul>
+            <h4 class="footer-column-title" style="margin-top: 1.2em">
+              教育应用
+            </h4>
+            <ul class="footer-column-list">
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">Apple 与教育</a>
+              </li>
+              <li class="footer-column-item">
+                <a href="#" class="footer-column-link">高校师生选购</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            更多选购方式：查找你附近的
+            <a href="#" class="footer-column-link">Apple Store 零售店</a> 及
+            <a href="#" class="footer-column-link">Apple 授权经销商</a
+            >，或者致电 400-666-8800。
+          </p>
+          <div>
+            <!-- Wrapper for copyright and legal links -->
+            <p>Copyright © 2023 Apple Inc. 保留所有权利。</p>
+            <div>
+              <!-- Wrapper for legal links for flex layout -->
+              <a href="#" class="footer-column-link">隐私政策</a>
+              <!-- Typo -->
+              <a href="#" class="footer-column-link">使用条款</a>
+              <a href="#" class="footer-column-link">销售政策</a>
+              <a href="#" class="footer-column-link">法律信息</a>
+              <a href="#" class="footer-column-link">网站地图</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

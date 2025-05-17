@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后台管理界面</title>
+    <link rel="stylesheet" href="./2.css" />
+    <!-- 引入一个图标库 (例如 Font Awesome) 会更好，这里为了简单省略 -->
+  </head>
+  <body>
+    <div class="admin-container">
+      <!-- 侧边栏 -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <h2>Admin Panel</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="active"><a href="#">仪表盘 (Dashboard)</a></li>
+            <li><a href="#">用户管理 (Users)</a></li>
+            <li><a href="#">产品管理 (Products)</a></li>
+            <li><a href="#">订单管理 (Orders)</a></li>
+            <li><a href="#">设置 (Settings)</a></li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <p>© 2023 Your Company</p>
+        </div>
+      </aside>
+
+      <!-- 主内容区容器 -->
+      <div class="main-content-wrapper">
+        <!-- 顶部栏 -->
+        <header class="header">
+          <div class="header-left">
+            <button id="toggle-sidebar-btn">☰</button>
+            <!-- 简易的切换按钮 -->
+            <input type="search" placeholder="搜索..." />
+          </div>
+          <div class="header-right">
+            <div class="notifications">
+              <span>🔔</span>
+              <!-- 简单图标 -->
+              <span class="badge">3</span>
+            </div>
+            <div class="user-profile">
+              <img src="https://via.placeholder.com/40" alt="User Avatar" />
+              <span>管理员</span>
+              <a href="#">登出</a>
+            </div>
+          </div>
+        </header>
+
+        <!-- 主内容区域 -->
+        <main class="content-area">
+          <h1>仪表盘</h1>
+          <p>欢迎来到后台管理系统！</p>
+
+          <div class="widgets-grid">
+            <div class="widget">
+              <h3>总用户数</h3>
+              <p class="widget-value">1,234</p>
+            </div>
+            <div class="widget">
+              <h3>今日订单</h3>
+              <p class="widget-value">56</p>
+            </div>
+            <div class="widget">
+              <h3>待处理事项</h3>
+              <p class="widget-value">12</p>
+            </div>
+            <div class="widget">
+              <h3>系统健康</h3>
+              <p class="widget-value" style="color: green">良好</p>
+            </div>
+          </div>
+
+          <div class="data-table-container">
+            <h2>最新用户</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>用户名</th>
+                  <th>邮箱</th>
+                  <th>注册日期</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Alice</td>
+                  <td>alice@example.com</td>
+                  <td>2023-10-01</td>
+                  <td>
+                    <button class="btn btn-edit">编辑</button>
+                    <button class="btn btn-delete">删除</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Bob</td>
+                  <td>bob@example.com</td>
+                  <td>2023-10-05</td>
+                  <td>
+                    <button class="btn btn-edit">编辑</button>
+                    <button class="btn btn-delete">删除</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Charlie</td>
+                  <td>charlie@example.com</td>
+                  <td>2023-10-12</td>
+                  <td>
+                    <button class="btn btn-edit">编辑</button>
+                    <button class="btn btn-delete">删除</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- 简单的JS用于切换侧边栏 (可选) -->
+    <script>
+      const toggleBtn = document.getElementById("toggle-sidebar-btn");
+      const sidebar = document.querySelector(".sidebar");
+      const adminContainer = document.querySelector(".admin-container");
+
+      if (toggleBtn && sidebar && adminContainer) {
+        toggleBtn.addEventListener("click", () => {
+          sidebar.classList.toggle("collapsed");
+          adminContainer.classList.toggle("sidebar-collapsed");
+        });
+      }
+    </script>
+  </body>
+</html>

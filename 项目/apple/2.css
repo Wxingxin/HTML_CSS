@@ -1,400 +1,46 @@
-/* style.css */
-
-/* --- Global Styles & Variables --- */
-:root {
-  --apple-font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --apple-text-primary-dark: #f5f5f7; /* For dark backgrounds */
-  --apple-text-primary-light: #1d1d1f; /* For light backgrounds */
-  --apple-text-secondary-dark: #86868b; /* For dark backgrounds */
-  --apple-text-secondary-light: #6e6e73; /* For light backgrounds */
-  --apple-link-color: #0071e3;
-  --apple-link-hover-color: #0077ed;
-  --apple-nav-bg-initial: rgba(29, 29, 31, 0.72); /* Translucent black */
-  --apple-nav-bg-scrolled: #1d1d1f; /* Solid darker black */
-  --apple-nav-text-color: var(--apple-text-primary-dark);
-  --apple-section-bg-light: #ffffff;
-  --apple-section-bg-dark: #000000;
-  --apple-footer-bg: #f5f5f7;
-  --apple-footer-text-color: var(--apple-text-secondary-light);
-  --apple-footer-link-color: var(--apple-text-primary-light);
-  --apple-accent-bg: #0071e3; /* For the top notification bar */
-}
-
-body {
-  font-family: var(--apple-font);
-  color: var(--apple-text-primary-light);
-  background-color: var(--apple-section-bg-light);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  box-sizing: border-box;
 }
 
-/* --- Top Notification Bar --- */
-/* Tailwind's bg-apple-accent is not a default, so let's define it */
-.bg-apple-accent {
-  background-color: var(--apple-accent-bg);
+body{
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #fff;
+  color: #1d1d1f;
+  line-height: 1.6;
 }
 
-/* --- Navigation Bar --- */
+a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hindden{
+  display: none;
+}
+
+.bg-apple-accent{
+  background-color: #f5f5f7;
+  text-decoration: center;
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #1d1d1f;
+}
+
 .navbar {
+  background-color: rgba(51, 51, 51, 0.9);
+  color: #f5f5f7;
+  padding: 0 20px;
   position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: var(--apple-nav-bg-initial); /* Initial translucent background */
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  transition: background-color 0.3s ease-in-out;
-  height: 48px; /* Apple's typical nav height */
-}
-
-/* Class added by JS on scroll */
-.navbar.bg-black {
-  background-color: var(--apple-nav-bg-scrolled); /* Solid background on scroll */
-}
-/* Remove the Tailwind opacity class if not needed with explicit color change */
-.navbar.bg-black\/80 {
-   /* This class might be added/removed by JS, let's ensure our base is solid when .bg-black is not present */
-}
-
-
-.navbar-container {
-  max-width: 1024px; /* Or Apple's standard 980px for content */
-  margin: 0 auto;
-  padding: 0 22px;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar-item {
-  color: var(--apple-nav-text-color);
-  padding: 0 8px;
-  font-size: 12px; /* Apple nav items are small */
-  font-weight: 400; /* Apple uses a lighter weight here */
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-  text-decoration: none;
-}
-
-.navbar-item:hover {
-  opacity: 1;
-}
-
-.navbar-item i.fa {
-  font-size: 17px; /* Apple icon size in nav */
-  vertical-align: middle;
-}
-/* Placeholder for Font Awesome icons if not loaded */
-.navbar-item i.fa-apple:empty::before { content: ""; font-size: 18px; }
-.navbar-item i.fa-search:empty::before { content: "🔍"; font-size: 15px;}
-.navbar-item i.fa-shopping-bag:empty::before { content: "🛍️"; font-size: 15px;}
-.mobile-menu i.fa-bars:empty::before { content: "☰"; font-size: 17px;}
-
-
-.mobile-menu {
-  display: none; /* Initially hidden, Tailwind's md:flex handles navbar-items */
-  color: var(--apple-nav-text-color);
-  cursor: pointer;
-}
-
-/* --- Main Content Sections --- */
-.main-content {
-  /* No specific styles needed here as sections handle their own */
-}
-
-.product-section {
-  padding: 80px 20px;
-  text-align: center;
-  overflow: hidden; /* Ensures images don't break layout */
-  position: relative; /* For potential absolute positioned elements later */
-}
-
-.product-section-dark {
-  background-color: var(--apple-section-bg-dark);
-  color: var(--apple-text-primary-dark);
-}
-
-.product-section-dark .product-subtitle {
-  color: var(--apple-text-secondary-dark);
-}
-
-.product-section-dark .product-link {
-  color: var(--apple-link-color);
-}
-.product-section-dark .product-link:hover {
-  color: var(--apple-link-hover-color);
-  text-decoration: underline;
-}
-
-
-.product-title {
-  font-size: 56px; /* Apple's large hero titles */
-  font-weight: 600;
-  line-height: 1.07143;
-  letter-spacing: -.005em;
-  margin-bottom: 6px;
-}
-
-.product-subtitle {
-  font-size: 28px; /* Apple's hero subtitles */
-  font-weight: 400;
-  line-height: 1.14286;
-  letter-spacing: .007em;
-  margin-bottom: 18px;
-  color: var(--apple-text-primary-light); /* Default for light sections */
-}
-
-.product-links {
-  margin-bottom: 40px;
-}
-
-.product-link {
-  color: var(--apple-link-color);
-  font-size: 21px;
-  line-height: 1.381;
-  font-weight: 400;
-  text-decoration: none;
-  margin: 0 15px;
-  display: inline-block; /* Allows margin */
-}
-
-.product-link:hover {
-  text-decoration: underline;
-}
-
-.product-image-container {
-  max-width: 90%; /* Control image width relative to section */
-  margin: 0 auto;
-}
-
-.product-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover; /* Or contain, depending on image aspect ratio */
-}
-
-/* --- Product Grid --- */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive columns */
-  gap: 12px; /* Apple's typical grid gap */
-  padding: 12px;
-  max-width: 1440px; /* Limit overall width of grid container */
-  margin: 0 auto; /* Center grid container */
-}
-
-.grid-item {
-  background-color: var(--apple-section-bg-light); /* Default, can be overridden */
-  padding: 50px 30px;
-  text-align: center;
-  border-radius: 18px; /* Apple often uses subtle rounded corners */
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Align content to top */
-  min-height: 500px; /* Give items a consistent minimum height */
-}
-
-/* Example of a dark grid item (if you were to add a class like .grid-item-dark) */
-/* .grid-item.grid-item-dark {
-  background-color: var(--apple-section-bg-dark);
-  color: var(--apple-text-primary-dark);
-}
-.grid-item.grid-item-dark .grid-subtitle {
-  color: var(--apple-text-secondary-dark);
-}
-.grid-item.grid-item-dark .grid-link {
-  color: var(--apple-link-color);
-} */
-
-.grid-title {
-  font-size: 32px; /* Slightly smaller than hero titles */
-  font-weight: 600;
-  line-height: 1.125;
-  letter-spacing: .004em;
-  margin-bottom: 4px;
-}
-
-.grid-subtitle {
-  font-size: 19px;
-  font-weight: 400;
-  line-height: 1.42105;
-  letter-spacing: .012em;
-  margin-bottom: 10px;
-  color: var(--apple-text-primary-light);
-}
-
-.grid-subtitle strong {
-  font-weight: 600; /* Ensure strong tag is bolder */
-}
-
-.grid-links {
-  margin-bottom: 25px;
-}
-
-.grid-link {
-  color: var(--apple-link-color);
-  font-size: 17px;
-  line-height: 1.47059;
-  font-weight: 400;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-.grid-link:hover {
-  text-decoration: underline;
-}
-
-.grid-image {
-  display: block;
-  width: 100%;
-  max-width: 80%; /* Control image size within the grid item */
-  height: auto;
-  object-fit: contain;
-  margin: auto auto 0 auto; /* Pushes image to bottom if space, centers horizontally */
-  margin-top: 20px;
-}
-
-/* --- Footer --- */
-.footer {
-  background-color: var(--apple-footer-bg);
-  color: var(--apple-footer-text-color);
-  padding: 40px 20px 20px;
-  font-size: 12px;
-  line-height: 1.33337;
-}
-
-.footer-container {
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.footer-text {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #d2d2d7;
-  margin-bottom: 20px;
-}
-
-.footer-text p {
-  margin-bottom: 0.8em;
-}
-
-.footer-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive columns */
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.footer-column-title {
-  font-weight: 600;
-  color: var(--apple-text-primary-light); /* Titles are darker */
-  margin-bottom: 0.8em;
-  font-size: 12px; /* Apple footer titles are same size as text */
-}
-
-.footer-column-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column-item {
-  margin-bottom: 0.6em;
-}
-
-.footer-column-link {
-  color: var(--apple-footer-link-color); /* Use a slightly darker gray for links */
-  text-decoration: none;
-}
-
-.footer-column-link:hover {
-  text-decoration: underline;
-}
-
-.footer-bottom {
-  padding-top: 20px;
-  border-top: 1px solid #d2d2d7;
-  font-size: 12px;
-}
-.footer-bottom p {
-    margin-bottom: 10px;
-}
-/* Tailwind handles flex for copyright and bottom links in HTML */
-
-
-/* --- Animations (from your script) --- */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInAnimation 0.6s ease-out forwards;
-}
-
-@keyframes fadeInAnimation {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 767px) { /* Corresponds to Tailwind's 'md' breakpoint */
-  .navbar-items {
-    display: none; /* Ensure they are hidden if md:flex fails or is overridden */
-  }
-  .mobile-menu {
-    display: block; /* Show burger menu */
-  }
-  .navbar-item i.fa {
-    font-size: 20px; /* Slightly larger icons on mobile nav for touch */
-  }
-
-  .product-title {
-    font-size: 32px; /* Smaller hero titles on mobile */
-  }
-  .product-subtitle {
-    font-size: 19px; /* Smaller hero subtitles on mobile */
-  }
-  .product-link {
-    font-size: 17px; /* Smaller links */
-    display: block; /* Stack links on mobile */
-    margin: 10px 0;
-  }
-  .product-section {
-    padding: 40px 15px;
-  }
-
-  .product-grid {
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: 10px;
-    padding: 10px;
-  }
-  .grid-item {
-    padding: 30px 20px;
-    min-height: auto; /* Allow natural height on mobile */
-  }
-  .grid-title {
-    font-size: 24px;
-  }
-  .grid-subtitle {
-    font-size: 17px;
-  }
-  .grid-link {
-    font-size: 15px;
-  }
-  .grid-image {
-    max-width: 100%; /* Allow image to fill more space */
-  }
-
-  .footer-links {
-    grid-template-columns: 1fr; /* Stack footer columns on mobile */
-  }
-   /* Tailwind's flex-col for footer-bottom on mobile is good */
 }

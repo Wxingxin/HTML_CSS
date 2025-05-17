@@ -1,0 +1,126 @@
+//1.css
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+  color: #333; /* 默认文本颜色 */
+}
+
+h1, h2 {
+  color: steelblue;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.container {
+  background-color: #f8f8f8;
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/* --- 文本对齐 --- */
+.align-left {
+  text-align: left; /* 默认，可以不写 */
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+.align-justify {
+  text-align: justify;
+}
+.align-last-center {
+  text-align-last: center;
+}
+
+/* --- 文本装饰 --- */
+.deco-underline u { /* 或者直接给p加class，然后用 text-decoration */
+  text-decoration: underline;
+  text-decoration-color: green; /* 改变下划线颜色 */
+  text-decoration-thickness: 2px; /* 改变下划线粗细 */
+}
+.deco-linethrough del {
+  text-decoration: line-through;
+  text-decoration-style: dotted; /* 改变删除线样式 */
+}
+.deco-overline span {
+  text-decoration: overline;
+}
+.custom-deco {
+  text-decoration: underline wavy red 2px; /* 简写：类型 样式 颜色 粗细 */
+  text-underline-offset: 3px; /* 下划线偏移 */
+}
+.shadow-simple {
+  /* 水平偏移 垂直偏移 模糊半径 颜色 */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+.shadow-multi {
+  color: white; /* 文字设为白色 */
+  /* 多个阴影用逗号隔开，可以模拟描边 */
+  text-shadow:
+      1px 1px 0 #000,
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+     -1px  1px 0 #000; /* 黑色描边 */
+}
+
+/* --- 文本转换 --- */
+.transform-upper {
+  text-transform: uppercase;
+}
+.transform-lower {
+  text-transform: lowercase;
+}
+.transform-capitalize {
+  text-transform: capitalize;
+}
+
+/* --- 文本间距与缩进 --- */
+.indent-example {
+  text-indent: 2em; /* 首行缩进两个字符宽度 */
+}
+.letter-space {
+  letter-spacing: 3px; /* 增加字符间距 */
+}
+.word-space {
+  word-spacing: 8px; /* 增加单词间距 */
+}
+
+/* --- 文本溢出 --- */
+.overflow-ellipsis {
+  width: 300px; /* 必须：给容器一个固定宽度 */
+  white-space: nowrap; /* 必须：强制文本不换行 */
+  overflow: hidden; /* 必须：隐藏溢出部分 */
+  text-overflow: ellipsis; /* 关键：显示省略号 */
+  border: 1px solid red; /* 方便观察容器边界 */
+}
+
+/* --- 其他相关属性 --- */
+.custom-color {
+  color: darkmagenta; /* 设置文本颜色 */
+}
+.increased-line-height {
+  line-height: 2.5; /* 增加行高 */
+  background-color: #e0f2f7; /* 加背景方便观察 */
+}
+.no-wrap-text {
+  white-space: nowrap; /* 文本不换行 */
+  width: 200px;
+  border: 1px solid orange;
+  overflow: auto; /* 加滚动条看效果 */
+}
+.break-long-word {
+  width: 200px; /* 限制宽度 */
+  border: 1px solid green;
+  overflow-wrap: break-word; /* 允许在长单词内部换行 */
+  /* 或者 word-break: break-all; (更强的断词，可能不考虑单词本身) */
+}

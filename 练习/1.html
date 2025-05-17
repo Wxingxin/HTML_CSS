@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Text 属性示例</title>
+    <link rel="stylesheet" href="1.css" />
+  </head>
+  <body>
+    <h1>CSS Text 属性演示</h1>
+
+    <div class="container">
+      <h2>文本对齐 (text-align)</h2>
+      <p class="align-left">
+        这段文本是左对齐的 (默认)。Lorem ipsum dolor sit amet consectetur
+        adipisicing elit.
+      </p>
+      <p class="align-center">
+        这段文本是居中对齐的。Lorem ipsum dolor sit amet consectetur adipisicing
+        elit.
+      </p>
+      <p class="align-right">
+        这段文本是右对齐的。Lorem ipsum dolor sit amet consectetur adipisicing
+        elit.
+      </p>
+      <p class="align-justify">
+        这段文本是两端对齐的 (justify)。需要足够长的文本才能看出效果。Lorem
+        ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+        blanditiis culpa cumque delectus distinctio doloremque.
+      </p>
+      <p class="align-justify align-last-center">
+        这段文本两端对齐，但最后一行居中 (text-align-last: center)。Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit. Vitae, voluptatum?
+      </p>
+    </div>
+
+    <div class="container">
+      <h2>文本装饰 (text-decoration & text-shadow)</h2>
+      <p class="deco-underline">这是<u>带下划线</u>的文本 (underline)。</p>
+      <p class="deco-linethrough">
+        这是<del>带删除线</del>的文本 (line-through)。
+      </p>
+      <p class="deco-overline">这是<span>带上划线</span>的文本 (overline)。</p>
+      <p class="deco-wavy-red">
+        这是<span class="custom-deco">自定义波浪红色下划线</span>文本。
+      </p>
+      <p class="shadow-simple">带简单阴影的文本。</p>
+      <p class="shadow-multi">带多种阴影效果的文本 (描边)。</p>
+    </div>
+
+    <div class="container">
+      <h2>文本转换 (text-transform)</h2>
+      <p class="transform-upper">this text will be uppercase.</p>
+      <p class="transform-lower">This Text Will Be LOWERCASE.</p>
+      <p class="transform-capitalize">
+        capitalize the first letter of each word.
+      </p>
+    </div>
+
+    <div class="container">
+      <h2>文本间距与缩进 (Spacing & Indentation)</h2>
+      <p class="indent-example">
+        首行缩进 2em。Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Architecto atque aut autem commodi consequatur corporis cumque
+        cupiditate delectus dicta distinctio doloremque.
+      </p>
+      <p class="letter-space">字 符 间 距 增 加。</p>
+      <p class="word-space">单词 之间 的 间距 增加 了。</p>
+    </div>
+
+    <div class="container">
+      <h2>文本溢出 (text-overflow)</h2>
+      <p class="overflow-ellipsis">
+        这是一个非常非常非常长的句子，它会超出容器的宽度，并在末尾显示省略号。
+      </p>
+    </div>
+
+    <div class="container">
+      <h2>其他相关属性</h2>
+      <p class="custom-color">这段文本使用自定义颜色。</p>
+      <p class="increased-line-height">
+        增加行高可以提高可读性。<br />这是第二行，<br />这是第三行。
+      </p>
+      <p class="no-wrap-text">
+        这段文字设置了 white-space: nowrap，所以不会自动换行，除非容器强制。
+      </p>
+      <p class="break-long-word">
+        这里有一个超长单词需要处理：Supercalifragilisticexpialidocious能否在中间断开？
+      </p>
+    </div>
+  </body>
+</html>

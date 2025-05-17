@@ -1,0 +1,391 @@
+/* Basic Reset & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #fff;
+  color: #1d1d1f; /* Apple's primary text color */
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #0066cc; /* Apple's link blue */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility for the .hindden class (as in HTML) */
+.hindden {
+  display: none;
+}
+
+/* Top Notification Bar */
+.bg-apple-accent {
+  background-color: #f5f5f7; /* Apple's light gray */
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #1d1d1f;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent dark gray */
+  color: #f5f5f7;
+  padding: 0 20px; /* Add some horizontal padding */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* For a frosted glass effect */
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-container {
+  max-width: 980px; /* Apple's typical nav width */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px; /* Apple's nav height */
+}
+
+.navbar-item {
+  color: #f5f5f7;
+  padding: 0 8px;
+  font-size: 12px; /* Apple nav links are small */
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.navbar-item:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.navbar-item .fa-apple {
+  font-size: 17px; /* Apple logo size */
+  line-height: 1;
+}
+.navbar-item .fa-search,
+.navbar-item .fa-shopping-bag {
+  font-size: 15px;
+}
+
+.navbar-items {
+  /* Corrected from navber-items */
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu {
+  display: none; /* Hidden by default, shown on mobile */
+  cursor: pointer;
+}
+.mobile-menu .fa-bars {
+  font-size: 18px;
+  color: #f5f5f7;
+}
+
+/* Main Content Area */
+.main-content {
+  /* No specific styles needed unless you want overall padding */
+}
+
+/* Product Sections */
+.product-section {
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 12px; /* Spacing between sections */
+  background-color: #fff; /* Default light background */
+}
+
+.product-section-dark {
+  background-color: #000;
+  color: #f5f5f7;
+}
+
+.product-title {
+  font-size: 40px; /* Larger for hero titles */
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+/* Responsive font size for product titles */
+@media (min-width: 768px) {
+  .product-title {
+    font-size: 56px;
+  }
+}
+
+.product-subtitle {
+  font-size: 21px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  letter-spacing: 0.007em;
+}
+.product-section-dark .product-subtitle {
+  color: #a1a1a6; /* Lighter subtitle on dark background */
+}
+
+.product-links {
+  margin-bottom: 25px;
+}
+
+.product-link {
+  font-size: 19px;
+  margin: 0 10px;
+  line-height: 1.3;
+}
+.product-section-dark .product-link {
+  color: #2997ff; /* Brighter blue for dark background */
+}
+
+.product-image-container {
+  /* Container for the image, useful for positioning or max-width */
+}
+
+.product-image {
+  margin: 0 auto; /* Center the image if it's narrower than its container */
+  /* max-height: 500px; /* Example constraint */
+  object-fit: cover;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 12px;
+  padding: 20px 12px; /* Add padding around the grid */
+  max-width: 1200px; /* Max width for the grid container */
+  margin: 0 auto; /* Center the grid */
+}
+
+@media (min-width: 734px) {
+  /* Apple's breakpoint for 2-column grids */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-item {
+  background-color: #f5f5f7; /* Light background for grid items */
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes image to bottom if content is short */
+  overflow: hidden; /* In case images are too large */
+  min-height: 450px; /* Give items a consistent minimum height */
+}
+/* Some grid items on Apple.com are dark */
+.grid-item.dark {
+  background-color: #000;
+  color: #f5f5f7;
+}
+.grid-item.dark .grid-subtitle {
+  color: #a1a1a6;
+}
+.grid-item.dark .grid-link {
+  color: #2997ff;
+}
+
+.grid-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.grid-subtitle {
+  font-size: 17px;
+  margin-bottom: 10px;
+  color: #1d1d1f; /* Default, might need adjustment if item is dark */
+  flex-grow: 1; /* Allow subtitle to take space before links/image */
+}
+
+.grid-links {
+  margin-bottom: 20px;
+}
+
+.grid-link {
+  font-size: 17px;
+  margin: 0 8px;
+}
+
+.grid-image {
+  margin: 0 auto;
+  max-height: 250px; /* Constrain image height in grid */
+  object-fit: contain; /* Ensure whole image is visible */
+  margin-top: auto; /* Push image to bottom after text */
+}
+
+/* Footer */
+.footer {
+  background-color: #f5f5f7;
+  color: #6e6e73; /* Apple's secondary text color */
+  padding: 30px 20px 20px;
+  font-size: 12px;
+}
+
+.footer-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #d2d2d7; /* Light separator */
+}
+
+.footer-text p {
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(180px, 1fr)
+  ); /* Responsive columns */
+  gap: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  /* border-bottom: 1px solid #d2d2d7; No, this border is usually after the links sections on Apple.com */
+}
+@media (min-width: 834px) {
+  /* Apple's typical footer column breakpoint */
+  .footer-links {
+    grid-template-columns: repeat(
+      5,
+      1fr
+    ); /* Match Apple's 5 columns on desktop for links */
+  }
+  /* Hide some columns on smaller screens if there are too many.
+            For this example, we'll let them wrap.
+         */
+}
+
+.footer-column-title {
+  color: #1d1d1f;
+  font-weight: 600; /* Semibold */
+  font-size: 12px;
+  margin-bottom: 0.8em;
+}
+
+.footer-column-list {
+  list-style: none;
+}
+
+.footer-column-item {
+  /* also applies to .footer-cloumn-item (typo in HTML) */
+  margin-bottom: 0.6em;
+}
+
+.footer-column-link {
+  color: #515154; /* Slightly darker than main footer text */
+}
+.footer-column-link:hover {
+  color: #0066cc;
+}
+
+.footer-bottom {
+  padding-top: 20px;
+  border-top: 1px solid #d2d2d7;
+}
+
+.footer-bottom p {
+  margin-bottom: 10px;
+}
+
+.footer-bottom > div > p {
+  /* Copyright text */
+  margin-bottom: 5px;
+}
+.footer-bottom > div > div {
+  /* Container for legal links */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-bottom .footer-column-link {
+  padding-right: 7px;
+  margin-right: 7px;
+  border-right: 1px solid #d2d2d7;
+  white-space: nowrap;
+}
+.footer-bottom .footer-column-link:last-child {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+/* Responsive Navbar - Apple's typical mobile breakpoint is around 833px */
+@media (max-width: 833px) {
+  .navbar-items {
+    /* This selector should match your HTML: .navber-items */
+    /* If using the .hindden class from your HTML, it's already display: none.
+             If not, then this rule is needed:
+             display: none;
+          */
+
+    /* To make it a dropdown, you'd change this to:
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 44px;
+          left: 0;
+          width: 100%;
+          background-color: rgba(51, 51, 51, 0.95);
+          padding: 10px 0;
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          And toggle this with JavaScript
+          */
+  }
+
+  /* This makes the .hindden class (from your HTML) show on desktop if it exists */
+  /* However, it's better to control visibility directly */
+  .navbar .hindden {
+    /* Targets '.navber-items.hindden' */
+    /* Stays hidden on mobile */
+  }
+
+  .mobile-menu {
+    display: block; /* Show hamburger */
+  }
+
+  .navbar-container {
+    /* If you want Apple logo and bag icon to remain with hamburger in middle: */
+    /* justify-content: space-between; */
+  }
+  .navbar-item.fa-apple, /* Hide most items */
+        .navbar-item.fa-search {
+    /* display: none; */ /* Or keep search/bag if desired */
+  }
+}
+
+/* Desktop Navbar Styles */
+@media (min-width: 834px) {
+  .hindden {
+    /* Specifically show .navber-items.hindden on desktop */
+    display: flex !important; /* Important to override inline or other specific styles if necessary */
+  }
+  .mobile-menu {
+    display: none; /* Hide hamburger on desktop */
+  }
+}
