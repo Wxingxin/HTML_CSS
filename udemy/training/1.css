@@ -1,0 +1,33 @@
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: max-content;
+  margin: 100px auto;
+  padding: 20px;
+}
+
+div .item {
+  text-align: center;
+  width: 450px;
+}
+
+h2 {
+  color: red;
+  font-size: 30px;
+  text-decoration: underline;
+  font-variant: normal;
+}
+
+span {
+  width: 200px;
+  height: 40px;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+  margin: 100px 0px;
+}

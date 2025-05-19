@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="./4.css" />
+    <script src="./4.js"></script>
+  </head>
+  <body>
+    <div class="admin-layout">
+      <!-- 顶部导航栏 -->
+      <header class="admin-header">
+        <div class="logo">管理系统</div>
+        <nav class="header-nav">
+          <!-- 可以放置一些全局操作，如消息通知 -->
+        </nav>
+        <div class="user-profile">
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23ddd'/%3E%3C/svg%3E"
+            alt="用户头像"
+            class="avatar"
+          />
+          <span>管理员</span>
+          <a href="#" id="logout" title="退出登录">退出</a>
+        </div>
+      </header>
+
+      <!-- 主体内容区域 -->
+      <div class="admin-body-wrapper">
+        <!-- 侧边栏 -->
+        <aside class="admin-sidebar">
+          <nav class="sidebar-nav">
+            <ul>
+              <li>
+                <a href="#" data-page="dashboard" class="nav-item"
+                  ><span class="icon">🏠</span> 仪表盘</a
+                >
+              </li>
+              <li>
+                <a href="#" class="nav-item has-submenu" data-toggle="submenu"
+                  ><span class="icon">👥</span> 用户管理
+                  <span class="arrow">▶</span></a
+                >
+                <ul class="submenu">
+                  <li>
+                    <a href="#" data-page="users-list" class="nav-item sub-item"
+                      >用户列表</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" data-page="users-add" class="nav-item sub-item"
+                      >添加用户</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" data-page="products" class="nav-item"
+                  ><span class="icon">📦</span> 产品管理</a
+                >
+              </li>
+              <li>
+                <a href="#" data-page="orders" class="nav-item"
+                  ><span class="icon">🛒</span> 订单管理</a
+                >
+              </li>
+              <li>
+                <a href="#" class="nav-item has-submenu" data-toggle="submenu"
+                  ><span class="icon">⚙️</span> 系统设置
+                  <span class="arrow">▶</span></a
+                >
+                <ul class="submenu">
+                  <li>
+                    <a
+                      href="#"
+                      data-page="settings-general"
+                      class="nav-item sub-item"
+                      >常规设置</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      data-page="settings-roles"
+                      class="nav-item sub-item"
+                      >角色权限</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- 主内容区域 -->
+        <main class="admin-content">
+          <div class="content-header">
+            <h1 id="page-title">仪表盘</h1>
+            <!-- 面包屑导航或其他头部信息可以放在这里 -->
+          </div>
+          <div class="content-body">
+            <div id="dashboard-page" class="content-page active">
+              <p>欢迎来到仪表盘。这里会显示一些统计数据和快速操作入口。</p>
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <h3>用户数</h3>
+                  <p class="stat-value">1,234</p>
+                </div>
+                <div class="stat-card">
+                  <h3>订单量</h3>
+                  <p class="stat-value">567</p>
+                </div>
+                <div class="stat-card">
+                  <h3>收入</h3>
+                  <p class="stat-value">¥89,012.34</p>
+                </div>
+                <div class="stat-card">
+                  <h3>待处理</h3>
+                  <p class="stat-value">12</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="users-list-page" class="content-page">
+              <p>这里是用户列表和管理功能。</p>
+              <button class="btn btn-primary add-button">添加新用户</button>
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>邮箱</th>
+                    <th>角色</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>张三</td>
+                    <td>zhangsan@example.com</td>
+                    <td>管理员</td>
+                    <td><span class="status active">激活</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-edit">编辑</button>
+                      <button class="btn btn-sm btn-delete">删除</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>李四</td>
+                    <td>lisi@example.com</td>
+                    <td>编辑</td>
+                    <td><span class="status inactive">禁用</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-edit">编辑</button>
+                      <button class="btn btn-sm btn-delete">删除</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="users-add-page" class="content-page">
+              <p>添加新用户表单。</p>
+              <!-- 示例表单 -->
+              <form action="#">
+                <div>
+                  <label for="username">用户名:</label>
+                  <input type="text" id="username" name="username" required />
+                </div>
+                <div>
+                  <label for="email">邮箱:</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div>
+                  <label for="role">角色:</label>
+                  <select id="role" name="role">
+                    <option value="admin">管理员</option>
+                    <option value="editor">编辑</option>
+                    <option value="user">普通用户</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">提交</button>
+              </form>
+            </div>
+            <div id="products-page" class="content-page">
+              <p>这里可以添加、编辑和删除产品。</p>
+            </div>
+            <div id="orders-page" class="content-page">
+              <p>查看和处理用户订单。</p>
+            </div>
+            <div id="settings-general-page" class="content-page">
+              <p>系统常规设置。</p>
+            </div>
+            <div id="settings-roles-page" class="content-page">
+              <p>角色与权限管理。</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+  </body>
+</html>
