@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-size: 30px;
+      }
+      .main {
+        background: teal;
+        height: 100px;
+        /* To center content vertically with `align-items`, you usually need `display: flex;` */
+        display: flex;
+        align-items: center;
+        /*子div 重置居中 条件1 */
+        padding: 0 auto;
+      }
+      .card {
+        /*子div 重置居中 条件2 */
+        margin: 0 auto;
+      }
+      .first {
+        position: relative;
+        font-size: small; /* 'small' is a keyword, better to use a specific size like 15px */
+        top: -20px;
+      }
+      .later {
+        position: relative;
+        font-size: small; /* 'small' is a keyword, better to use a specific size like 15px */
+        top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="card">
+        <span>3</span><span class="first">2</span>+<span>X</span
+        ><span class="later">2</span> = 16
+      </div>
+    </div>
+  </body>
+</html>

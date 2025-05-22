@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .box1 {
+        width: 300px;
+        height: 300px;
+        background: teal;
+      }
+      .box2 {
+        width: 100px;
+        height: 100px;
+        background: brown;
+        /* margin 的值给到了父元素 */
+        margin-top: 50px;
+      }
+      .box3 {
+        width: 300px;
+        height: 300px;
+        background: teal;
+        /* 解决margin  传递给父div 
+        对样式有破坏， 减少破坏 :transform 但是还是小问题  */
+        border: 1px solid transparent;
+      }
+      .box4 {
+        width: 100px;
+        height: 100px;
+        background: brown;
+        margin-top: 50px;
+      }
+      /* 在父div  设置 padding-top 来代替子元素 margin-top */
+      .box5 {
+        width: 300px;
+        height: 300px;
+        background: teal;
+        padding-top: 50px;
+      }
+      .box6 {
+        width: 100px;
+        height: 100px;
+        background: brown;
+      }
+    </style>
+  </head>
+  <body>
+    /**
+    防止出现margin的上传递：
+    1.给父元素设置为padding-top/padding-bottom
+    2.给父元素设置border 边框要有值
+    3.触发bfc
+    */
+    <div class="box1"><div class="box2"></div></div>
+    <hr />
+    <div class="box3">
+      <div class="box4"></div>
+    </div>
+    <hr />
+    <div class="box5">
+      <div class="box6"></div>
+    </div>
+  </body>
+</html>

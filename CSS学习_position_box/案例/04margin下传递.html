@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        width: 200px;
+        height: 200px;
+        background: teal;
+      }
+      .box2 {
+        width: 100px;
+        height: 100px;
+        background: brown;
+        /* 使用 mrgin-bottom  不会传递给父  div*/
+        margin-bottom: 50px;
+      }
+      .box3 {
+        width: 200px;
+
+        /* height 不写 为： auto 。由子元素撑起来 */
+        /* height: 200px; */
+
+        background: teal;
+      }
+      .box4 {
+        width: 100px;
+        height: 100px;
+        background: brown;
+        /* 使用 mrgin-bottom  不会传递给父  div*/
+        margin-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <!-- margin 下传递条件:1. height 不写(auto)或设置为auto -->
+                      <!-- 2. 父子的botton挨着 -->
+    
+    <div class="box1">
+      <div class="box2"></div>
+    </div>
+    <div>wei and gao</div>
+    <hr />
+    <div class="box3">
+      <div class="box4"></div>
+    </div>
+    <div>wei and gao</div>
+  </body>
+</html>

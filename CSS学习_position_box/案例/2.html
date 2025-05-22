@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>固定界面</title>
+    <style>
+      body {
+        /* 方法一：隐藏溢出 */
+        overflow: hidden;
+        /* 或者，只禁止垂直滚动 */
+        /* overflow-y: hidden; */
+
+        /* 仅仅为了演示效果，给页面内容加一些高度 */
+        height: 200vh; /* 故意让内容很高，看是否会滚动 */
+        margin: 0;
+        padding: 0;
+        background-color: lightblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        color: white;
+      }
+
+      .content {
+        background-color: navy;
+        padding: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <h1>这个页面是固定的</h1>
+      <p>你无法滚动这个页面。</p>
+      <p>即使内容很长，滚动条也不会出现。</p>
+      <p>这是为了演示 `overflow: hidden;` 的效果。</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+      <p>... 更多内容 ...</p>
+    </div>
+  </body>
+</html>
