@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h2 {
+        text-align: center;
+        margin-bottom: 0;
+      }
+      .container,
+      .container-wrap-reverse,
+      .container-1,
+      .container-2,
+      .container-2-wrap-reverse,
+      .container-3,
+      .container-4 {
+        display: flex;
+        background: teal;
+      }
+      .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .container-wrap-reverse {
+        flex-direction: row;
+        flex-wrap: wrap-reverse;
+      }
+      .container-2 {
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+      }
+      .container-2-wrap-reverse {
+        flex-direction: row-reverse;
+        flex-wrap: wrap-reverse;
+      }
+      .container-3 {
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+      .container-4 {
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+      }
+      .item {
+        width: 300px;
+        height: 50px;
+        background: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>flex-wrap 的四种属性值</h2>
+    <!-- 1 -->
+    <div class="container">
+      <div class="item itme-1">item 1</div>
+      <div class="item itme-2">item 2</div>
+      <div class="item itme-3">item 3</div>
+      <div class="item itme-4">item 4</div>
+      <div class="item itme-5">item 5</div>
+      <div class="item itme-5">item 6</div>
+    </div>
+    <hr />
+    <!-- 2 -->
+    <div class="container-wrap-reverse">
+      <div class="item itme-1">item 1</div>
+      <div class="item itme-2">item 2</div>
+      <div class="item itme-3">item 3</div>
+      <div class="item itme-4">item 4</div>
+      <div class="item itme-5">item 5</div>
+      <div class="item itme-5">item 6</div>
+    </div>
+    <hr />
+    <div class="container-2">
+      <div class="item itme-1">item 1</div>
+      <div class="item itme-2">item 2</div>
+      <div class="item itme-3">item 3</div>
+      <div class="item itme-4">item 4</div>
+      <div class="item itme-5">item 5</div>
+      <div class="item itme-5">item 6</div>
+    </div>
+    <hr />
+    <div class="container-2-wrap-reverse">
+      <div class="item itme-1">item 1</div>
+      <div class="item itme-2">item 2</div>
+      <div class="item itme-3">item 3</div>
+      <div class="item itme-4">item 4</div>
+      <div class="item itme-5">item 5</div>
+      <div class="item itme-5">item 6</div>
+    </div>
+    <hr />
+    <h2>
+      fle wrap 在 flex-direction: column/column-reverse
+      不会换行，因为会不断地撑起高度
+    </h2>
+    <div class="container-3">
+      <div class="item itme-1">item 1</div>
+      <div class="item itme-2">item 2</div>
+      <div class="item itme-3">item 3</div>
+      <div class="item itme-4">item 4</div>
+      <div class="item itme-5">item 5</div>
+      <div class="item itme-5">item 6</div>
+    </div>
+    <hr />
+    <div class="container-4">
+      <div class="item itme-1">item 1</div>
+      <div class="item itme-2">item 2</div>
+      <div class="item itme-3">item 3</div>
+      <div class="item itme-4">item 4</div>
+      <div class="item itme-5">item 5</div>
+      <div class="item itme-5">item 6</div>
+    </div>
+  </body>
+</html>
