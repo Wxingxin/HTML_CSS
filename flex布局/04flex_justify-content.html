@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      .container-start {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        /* height: 200px; */
+        background: teal;
+      }
+      .container-end {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: end;
+      }
+      .container-center {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+      }
+      .container-space-between {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+      }
+      .container-space-around {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+      }
+      .container-space-evenly {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+      }
+      .item {
+        /* margin: 10px; */
+        background: brown;
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>justify-content 的六种情况</h2>
+    <div class="container-start">
+      <item class="item">item1</item>
+      <item class="item">item2</item>
+      <item class="item">item3</item>
+      <item class="item">item4</item>
+    </div>
+    <hr />
+    <div class="container-end">
+      <item class="item">item1</item>
+      <item class="item">item2</item>
+      <item class="item">item3</item>
+      <item class="item">item4</item>
+    </div>
+    <hr />
+    <div class="container-center">
+      <item class="item">item1</item>
+      <item class="item">item2</item>
+      <item class="item">item3</item>
+      <item class="item">item4</item>
+    </div>
+    <hr />
+    <div class="container-space-between">
+      <item class="item">item1</item>
+      <item class="item">item2</item>
+      <item class="item">item3</item>
+      <item class="item">item4</item>
+    </div>
+    <hr />
+    <div class="container-space-around">
+      <item class="item">item1</item>
+      <item class="item">item2</item>
+      <item class="item">item3</item>
+      <item class="item">item4</item>
+    </div>
+    <hr />
+    <div class="container-space-evenly">
+      <item class="item">item1</item>
+      <item class="item">item2</item>
+      <item class="item">item3</item>
+      <item class="item">item4</item>
+    </div>
+  </body>
+</html>

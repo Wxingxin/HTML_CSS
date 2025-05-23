@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h4 {
+        text-align: center;
+        font-size: 20px;
+      }
+
+      div[class*="container"] {
+        height: 280px;
+      }
+
+      .container-flex-start {
+        background: teal;
+        /* height: 280px; */
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+      }
+
+      .container-flex-end {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-end;
+      }
+
+      .container-center {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: center;
+      }
+
+      .container-stretch {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: stretch;
+      }
+
+      .container-space-evenly {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: space-evenly;
+      }
+
+      .container-space-between {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: space-between;
+      }
+
+      .container-space-around {
+        background-color: teal;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: space-around;
+        /* justify-content: space-between; */
+      }
+
+      .item {
+        background: brown;
+        width: 340px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>这个类型使用有限制:container 的高度是固定的</h1>
+    <h4>flex-start</h4>
+    <!-- 1 -->
+    <div class="container-flex-start">
+      <div class="item">item 1</div>
+      <div class="item">item 2</div>
+      <div class="item">item 3</div>
+      <div class="item">item 4</div>
+      <div class="item">item 5</div>
+      <div class="item">item 6</div>
+      <div class="item">item 7</div>
+      <div class="item">item 8</div>
+      <div class="item">item 9</div>
+      <div class="item">item 0</div>
+    </div>
+    <hr />
+    <!-- 2 -->
+    <h4>flex-end</h4>
+    <div class="container-flex-end">
+      <div class="item">item 1</div>
+      <div class="item">item 2</div>
+      <div class="item">item 3</div>
+      <div class="item">item 4</div>
+      <div class="item">item 5</div>
+      <div class="item">item 6</div>
+      <div class="item">item 7</div>
+      <div class="item">item 8</div>
+      <div class="item">item 9</div>
+      <div class="item">item 0</div>
+    </div>
+    <hr />
+    <!-- 3 -->
+    <h4>center</h4>
+    <div class="container-center">
+      <div class="item">item 1</div>
+      <div class="item">item 2</div>
+      <div class="item">item 3</div>
+      <div class="item">item 4</div>
+      <div class="item">item 5</div>
+      <div class="item">item 6</div>
+      <div class="item">item 7</div>
+      <div class="item">item 8</div>
+      <div class="item">item 9</div>
+      <div class="item">item 0</div>
+    </div>
+    <hr />
+    <!-- 4 -->
+    <h4>space-evenly</h4>
+    <div class="container-space-evenly">
+      <div class="item" style="height: auto">item 1</div>
+      <div class="item" style="height: auto">item 2</div>
+      <div class="item" style="height: auto">item 3</div>
+      <div class="item" style="height: auto">item 4</div>
+      <div class="item" style="height: auto">item 5</div>
+      <div class="item" style="height: auto">item 6</div>
+      <div class="item" style="height: auto">item 7</div>
+      <div class="item" style="height: auto">item 8</div>
+      <div class="item" style="height: auto">item 9</div>
+      <div class="item" style="height: auto">item 0</div>
+    </div>
+    <hr />
+    <!-- 5 -->
+    <h4>space-between</h4>
+    <div class="container-space-between">
+      <div class="item">item 1</div>
+      <div class="item">item 2</div>
+      <div class="item">item 3</div>
+      <div class="item">item 4</div>
+      <div class="item">item 5</div>
+      <div class="item">item 6</div>
+      <div class="item">item 7</div>
+      <div class="item">item 8</div>
+      <div class="item">item 9</div>
+      <div class="item">item 0</div>
+    </div>
+    <hr />
+    <!-- 6 -->
+    <h4>space-around</h4>
+    <div class="container-space-around">
+      <div class="item">item 1</div>
+      <div class="item">item 2</div>
+      <div class="item">item 3</div>
+      <div class="item">item 4</div>
+      <div class="item">item 5</div>
+      <div class="item">item 6</div>
+      <div class="item">item 7</div>
+      <div class="item">item 8</div>
+      <div class="item">item 9</div>
+      <div class="item">item 0</div>
+    </div>
+  </body>
+</html>

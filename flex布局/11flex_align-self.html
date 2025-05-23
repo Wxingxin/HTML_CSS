@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        height: 300px;
+        align-items: center;
+      }
+
+      .item {
+        background: brown;
+        width: 120px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+      }
+
+      .item1 {
+        height: 80px;
+        align-self: flex-end;
+      }
+
+      .item3 {
+        height: 60px;
+        align-self: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>align-self 使用的不多</h2>
+    <div class="container">
+      <div class="item item1">item1</div>
+      <div class="item item2">item2</div>
+      <div class="item item3">item3</div>
+      <div class="item item4">item4</div>
+      <div class="item item5">item5</div>
+    </div>
+  </body>
+</html>
