@@ -12,8 +12,8 @@
       }
 
       .container {
-        height: 100vh;
         width: 100vw;
+        height: 100vh;
         display: flex;
         flex-flow: row wrap;
         justify-content: space-evenly;
@@ -23,27 +23,21 @@
 
       img {
         width: 390px;
-        transition: all 2s ease-in 100ms;
+        transition: transform 2s ease 100ms;
+        /* origin 不要放在:hover上 ,会有很多错误的情况 */
+        transform-origin: top right;
       }
 
-      .one:hover {
+      .img1:hover {
         transform: rotate(60deg);
-      }
-
-      .two:hover {
-        transform: rotate(.9turn);
-      }
-
-      .three:hover {
-        transform: rotate(200grad);
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <img class="one" src="./pic/cat.jpg" alt="" />
-      <img class="two" src="./pic/cat.jpg" alt="" />
-      <img class="three" src="./pic/cat.jpg" alt="" />
+      <img src="./pic/cat.jpg" alt="" class="img1" />
+      <img src="./pic/cat.jpg" alt="" class="img2" />
+      <img src="./pic/cat.jpg" alt="" class="img3" />
     </div>
   </body>
 </html>
