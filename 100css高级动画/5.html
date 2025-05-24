@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        background: teal;
+      }
+
+      img {
+        width: 390px;
+        transition: all 2s ease-in 100ms;
+      }
+
+      .one:hover {
+        transform: rotate(60deg);
+      }
+
+      .two:hover {
+        transform: rotate(.9turn);
+      }
+
+      .three:hover {
+        transform: rotate();
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="one" src="./pic/cat.jpg" alt="" />
+      <img class="two" src="./pic/cat.jpg" alt="" />
+      <img class="three" src="./pic/cat.jpg" alt="" />
+    </div>
+  </body>
+</html>
