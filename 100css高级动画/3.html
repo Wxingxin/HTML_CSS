@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        background: teal;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        /* display: block; */
+        width: 390px;
+        height: auto;
+        transition: transform 2s;
+      }
+
+      img:hover {
+        transform: translateY(200px);
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./pic/cat.jpg" alt="cat" />
+  </body>
+</html>
