@@ -1029,3 +1029,145 @@ Flexbox 同样适用于行内内容的垂直居中，且对多行文本或包含
   - **单行文本：** 容器 `height` 等于 `line-height`。
   - **多行/混合内容：** **父元素 `display: flex;` + `align-items: center;`** (推荐，最普适)
   - `padding` (简单但不灵活)。
+
+  # 如何使用 CSS 实现单行多行文本溢出处理
+
+#### 1. 单行文本溢出
+
+- **`white-space: nowrap;`** : 强制文本不换行。
+
+- **`overflow: hidden;`** : 隐藏超出容器边界的内容。
+
+- **`text-overflow: ellipsis;`** : 当文本溢出时，显示省略号。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>实现单行和多行文本溢出</title>
+    <style>
+      .box {
+        width: 100px;
+        white-space: nowrap; /*不转行*/
+        overflow: hidden; /*超出则隐藏*/
+        text-overflow: ellipsis; /*超出则打点*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">ukdkasldaskajhas83182903812iewsa213sjansn</div>
+  </body>
+</html>
+```
+
+#### 2. 多行文本溢出
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>实现单行和多行文本溢出</title>
+    <style>
+      .box {
+        width: 100px;
+        display: -webkit-box; /*将对象作为弹性伸缩盒子模型显示 */
+        -webkit-box-orient: vertical; /*转行方向排列*/
+        -webkit-line-clamp: 3; /*转3行*/
+        overflow: hidden; /*超出则隐藏*/
+        word-break: break-all; /*强制转换*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      ukdkasldaskajhas831829038238901237982199312iewsa213sjansn
+    </div>
+  </body>
+</html>
+```
+
+# 响应式设计是什么？原理？
+
+是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本
+
+基本原理是通过媒体查询检测不同设备屏幕尺寸做处理。
+
+页面头部必须有 meta 声明 viewport
+
+```html
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+/>
+```
+
+# transition 和 animation 有何区别？
+
+- transition: 用于做过渡效果，没有帧概念，只有开始和结束状态，性能开销小
+- animate：用于做动画，有帧的概念，可以重复触发且有中间状态，性能开销比较大，主动触发
+
+# BFC
+
+## 1. **是什么 (Definition):**
+
+BFC 是一个独立的渲染区域，规定了内部块级盒子（Block-level boxes）如何布局。
+
+## 2. 在 html 中的块级元素是不是都在 bfc 中，即使父 div 没有开启 bfc？
+
+是的，你的理解是正确的！**在 HTML 中，所有的块级元素（Block-level elements）最终都存在于某个块格式化上下文 (BFC) 之中。**
+
+原因如下：
+
+1.  **根元素    自动创建 BFC:**   页面上所有可见元素都嵌套在    元素内。根据 CSS 规范，  元素本身就会自动创建整个文档的**根 BFC (Root BFC)** 。
+1.  **默认归属:**   如果一个块级元素（比如你的  div) 的父元素**没有**通过特定 CSS 属性（如  overflow: hidden, display: flow-root, float: left, position: absolute  等）来创建**新的、嵌套的 BFC**，那么这个块级元素就**默认属于其父元素所在的那个 BFC**。
+1.  **传递性:**   这个归属关系会一直向上追溯，直到找到一个创建了 BFC 的祖先元素。由于    总是创建 BFC，所以任何元素最终都会归属于至少一个 BFC（最差也是根 BFC）。
+
+**总结来说：**
+
+- **所有块级元素都位于某个 BFC 内。**
+- 如果一个元素的直接父元素没有明确创建新的 BFC，那么这个元素就和它的父元素（以及它的兄弟元素）一起，位于**同一个**更上层的 BFC 中（最终可以追溯到    创建的根 BFC）。
+- **这正是为什么即使父  div  没有“开启 BFC”，其内部的相邻块级子元素（如  .box3  和  .box5）之间仍然会发生外边距塌陷** —— 因为它们处于同一个（通常是上层的）BFC 环境中，满足了塌陷的条件。
+
+## 3. **如何触发/创建 BFC (Triggers):**
+
+一个元素要形成 BFC，需要满足以下**至少一个**条件：
+
+- 根元素 () 本身就是一个 BFC。 - 浮动元素 (float 值不为 none)。
+- 绝对定位元素 (position 值为 absolute 或 fixed)。
+- 行内块元素 (display: inline-block)。
+- 表格单元格 (display: table-cell，HTML 表格单元格默认属性)。
+- 表格标题 (display: table-caption)。
+- 匿名表格单元格元素（display: table、table-row、table-row-group、table-header-group、table-footer-group 的直接子元素，如果不是 table-cell，则会创建匿名单元格，该单元格是 BFC）。
+- overflow 值不为 visible 或 clip 的块元素（即 overflow: hidden, auto, scroll)。**这是开发中最常用来手动创建 BFC 的方式之一。**
+- display: flow-root。**这是专门为了创建无副作用 BFC 而设计的现代 CSS 属性。**
+- 弹性元素（display: flex 或 inline-flex 的直接子元素）。
+- 网格元素（display: grid 或 inline-grid 的直接子元素）。
+- 多列容器（column-count 或 column-width 值不为 auto，包括 column-count: 1）。
+
+## 4. **BFC 的特性/布局规则 (Characteristics/Rules):**
+
+- **内部垂直布局:** 在 BFC 内部，块级盒子在垂直方向上一个接一个地放置，从包含块的顶部开始。 - **盒子间垂直距离:** 同一个 BFC 内的两个相邻块级盒子的垂直外边距会发生**塌陷 (Margin Collapsing)** 。
+- **外边距不塌陷:** **关键点！** BFC 区域**不会**与外部元素的垂直外边距发生塌陷。也就是说，属于不同 BFC 的相邻块级盒子的垂直外边距不会塌陷。
+- **包含浮动元素:** **关键点！** BFC 可以包含其内部的浮动元素。计算 BFC 的高度时，其内部的浮动元素也会参与计算。这意味着 BFC 不会发生高度塌陷（即父元素高度为 0，即使内部有浮动元素）。
+- **隔离性:** BFC 的区域**不会**与外部的浮动元素重叠。它就像一道屏障，阻止外部浮动元素侵入其内部，也阻止其内部布局影响外部。
+
+## 5. **BFC 的应用/解决了什么问题 (Applications):**
+
+基于 BFC 的特性，它可以用来解决很多常见的 CSS 布局问题：
+
+- **防止外边距塌陷 (Prevent Margin Collapsing):** 当两个相邻元素（兄弟或父子）的垂直外边距相遇时可能发生塌陷。将其中一个元素包裹在一个 BFC 容器中，可以阻止它与外部元素的边距塌陷。例如，给父元素创建 BFC 可以阻止子元素 margin-top 传递给父元素（父子边距塌陷的一种情况）。
+- **清除浮动/包含浮动 (Clear/Contain Floats):** 当一个容器内的所有子元素都浮动时，父容器的高度会塌陷为 0。给父容器创建 BFC（如设置 overflow: hidden 或 display: flow-root）可以强制它包裹住内部的浮动元素，从而正确计算高度。这是最常见的 BFC 应用之一，常被称为“自清除”浮动。
+- **阻止元素被浮动元素覆盖 (Prevent Text Wrapping Around Floats):** 创建一个多列布局，例如左侧栏浮动，右侧主内容区自适应。如果不做处理，右侧内容区的文字可能会环绕左侧浮动元素。将右侧主内容区设置为 BFC，可以使其形成一个独立的布局区域，不会与左侧的浮动元素发生重叠，内容也不会环绕。
+
+## 6. **现代方法 (display: flow-root):**
+
+过去常用 overflow: hidden/auto/scroll 来创建 BFC 以清除浮动或解决其他布局问题，但这可能会带来不必要的副作用（如内容被裁剪、出现滚动条）。display: flow-root 是 CSS Display Module Level 3 中引入的新值，它的唯一目的就是创建一个无副作用的 BFC，是现代 CSS 中解决上述问题的**首选方案**。
+
+## 7. 没有 BFC 会发生什么
+
+| 问题描述               | 原因                                   |
+| ---------------------- | -------------------------------------- |
+| 父元素高度塌陷         | 子元素浮动，没有被包含                 |
+| 相邻元素 margin 合并   | 没有 BFC，margin 发生合并              |
+| 后续元素被浮动元素影响 | 没有触发 BFC，浮动没有被隔离           |
+| 布局混乱、难以控制     | 缺乏独立格式化上下文，元素之间相互干扰 |
