@@ -1171,3 +1171,283 @@ BFC 是一个独立的渲染区域，规定了内部块级盒子（Block-level b
 | 相邻元素 margin 合并   | 没有 BFC，margin 发生合并              |
 | 后续元素被浮动元素影响 | 没有触发 BFC，浮动没有被隔离           |
 | 布局混乱、难以控制     | 缺乏独立格式化上下文，元素之间相互干扰 |
+
+
+# 绘制基本几何图形
+
+#### 1.1 正方形 / 长方形
+
+这是最基础的。通过设置 `width` 和 `height` 即可。
+
+```css
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.rectangle {
+    width: 150px;
+    height: 80px;
+    background-color: green;
+}
+```
+
+#### 1.2 圆形
+
+在正方形的基础上，通过 `border-radius: 50%;` 实现。
+
+```css
+.circle {
+    width: 100px;
+    height: 100px; /* 必须是等宽等高 */
+    background-color: red;
+    border-radius: 50%; /* 将边角半径设置为50% */
+}
+```
+
+#### 1.3 椭圆形
+
+在长方形的基础上，通过 `border-radius: 50%;` 实现。
+
+```css
+.oval {
+    width: 150px;
+    height: 80px;
+    background-color: purple;
+    border-radius: 50%; /* 将边角半径设置为50% */
+}
+```
+
+### 2. 绘制三角形
+
+利用 CSS 的 `border` 属性特性来绘制三角形。当一个元素的宽度和高度都为 0，但有边框时，边框的交界处会形成三角形。
+
+```css
+/* 向上三角形 */
+.triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent; /* 左边框透明 */
+    border-right: 50px solid transparent; /* 右边框透明 */
+    border-bottom: 100px solid blue; /* 底部边框实色，形成三角形的底边 */
+}
+
+/* 向下三角形 */
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid green;
+}
+
+/* 向左三角形 */
+.triangle-left {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-right: 100px solid red;
+}
+
+/* 向右三角形 */
+.triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 100px solid purple;
+}
+```
+
+### 3. 绘制半圆形 / 扇形
+
+利用 `border-radius` 和 `overflow: hidden` 或者结合伪元素。
+
+#### 3.1 半圆形 (通过 `border-radius` 和 `overflow: hidden`)
+
+```css
+/* 上半圆 */
+.half-circle-top {
+    width: 100px;
+    height: 50px; /* 高度是宽度的一半 */
+    background-color: orange;
+    border-top-left-radius: 50px; /* 左右顶部半径为高度 */
+    border-top-right-radius: 50px;
+    /* 或者简写 border-radius: 50px 50px 0 0; */
+}
+
+/* 下半圆 */
+.half-circle-bottom {
+    width: 100px;
+    height: 50px;
+    background-color: darkorange;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /* 或者简写 border-radius: 0 0 50px 50px; */
+}
+
+/* 左右半圆类似，调整 width/height 和 border-radius */
+```
+
+#### 3.2 扇形 (通常结合 `transform` 旋转伪元素，或者 SVG)
+
+用纯 CSS 绘制任意角度的扇形会比较复杂，通常涉及到 `transform` 旋转和伪元素。
+
+**简单扇形 (四分之一圆)：**
+
+```css
+.quarter-circle {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    border-top-left-radius: 100%; /* 或 100px，等于 width/height */
+    /* 只保留一个角的圆角 */
+    overflow: hidden; /* 确保不溢出 */
+}
+```
+
+**复杂扇形 (使用伪元素和旋转，实现任意角度则更复杂)：**
+
+```css
+/* 以绘制一个 90度 扇形为例 (左下角) */
+.pie-slice {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: transparent; /* 背景透明 */
+    border-bottom-left-radius: 100%; /* 形成四分之一圆 */
+    overflow: hidden;
+}
+
+.pie-slice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hotpink; /* 扇形颜色 */
+    /* 配合父元素的 border-radius 和 overflow: hidden 裁剪 */
+}
+```
+
+### 4. 绘制心形 (Love Heart)
+
+心形通常通过两个旋转的圆形和下方一个正方形/矩形组成。
+
+```css
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px; /* 调整高度以适配比例 */
+    background-color: red;
+    transform: rotate(-45deg); /* 旋转45度 */
+    transform-origin: 50% 50%; /* 确保旋转中心在中间 */
+    margin: 50px; /* 避免和页面边缘重叠 */
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%; /* 形成圆形 */
+}
+
+.heart::before {
+    top: -50px; /* 向上移动，形成左边圆弧 */
+    left: 0;
+}
+
+.heart::after {
+    left: 50px; /* 向右移动，形成右边圆弧 */
+    top: 0;
+}
+```
+
+### 5. 绘制多边形 (使用 `clip-path`)
+
+`clip-path` 属性允许你创建一个剪裁区域，只有在区域内的部分是可见的。这使得绘制复杂的多边形变得容易。
+
+-   `polygon()`: 定义一个多边形，接受一系列 x y 坐标。
+-   `circle()`: 定义一个圆形。
+-   `ellipse()`: 定义一个椭圆形。
+-   `inset()`: 定义一个矩形。
+
+```css
+/* 六边形 */
+.hexagon {
+    width: 100px;
+    height: 100px;
+    background-color: teal;
+    /* 定义六个点的坐标 */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* 八边形 */
+.octagon {
+    width: 120px;
+    height: 120px;
+    background-color: darkcyan;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+/* 星形 (更复杂，需要更多点) */
+.star {
+    width: 150px;
+    height: 150px;
+    background-color: gold;
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+}
+```
+
+**兼容性注意：** `clip-path` 在现代浏览器中支持良好，但对于旧版本浏览器可能需要 `-webkit-clip-path` 前缀。如果需要更广泛的兼容性，可能需要回退方案或 SVG。
+
+### 6. 绘制加载动画 (Loading Spinners)
+
+使用 CSS 动画 (`@keyframes`) 和 `border` 属性可以创建各种加载动画。
+
+```css
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #09f; /* 局部边框颜色 */
+    animation: spin 1s linear infinite; /* 应用动画 */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+```
+
+### 总结
+
+在面试中，考察 CSS 绘制图形的能力通常是希望看到：
+
+-   **对基本 CSS 属性的熟练掌握：** `width`, `height`, `background-color`, `border`, `border-radius`。
+-   **对 `transform` 和 `position` 的理解：** 用于定位和旋转元素，实现复杂图形。
+-   **对伪元素 (`::before`, `::after`) 的运用：** 常常用于构建更复杂的图形部件。
+-   **对现代 CSS 属性的了解：** 如 `clip-path` 用于多边形、`@keyframes` 用于动画。
+-   **解决问题的思路：** 如何将复杂图形分解成简单的 CSS 形状组合。
