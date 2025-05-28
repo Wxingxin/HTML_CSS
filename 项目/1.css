@@ -1,0 +1,220 @@
+/* 全局样式 */
+:root {
+  --bg-color: #f4f7fa;
+  --bg-color-gap: #343a40;
+
+  --text-color-333: #333;
+  --text-color-444: #444;
+  --text-color-555: #555;
+  --text-color-666: #666;
+  --text-color-blue: #007bff;
+
+  --box-shadow-01: rgba(0, 0, 0, 0.1);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Sego UI", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color-333);
+  /* 防止主页面 滚动条*/
+  overflow: hidden;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 60px 1fr;
+  height: 100vh;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+}
+
+.dashboard-header {
+  grid-area: header;
+  background-color: #fff;
+  box-shadow: 0 2px 4px var(--box-shadow-01);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: var(--text-color-444);
+}
+
+.dashboard-header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--text-color-blue);
+}
+
+.dashboard-header .logo .fas {
+  margin-right: 8px;
+  color: #0056b3;
+}
+
+.dashboard-header .main-nav a {
+  text-decoration: none;
+  color: var(--text-color-555);
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.dashboard-header .main-nav a:hover {
+  color: var(--text-color-blue);
+}
+
+.dashboard-header .user-info {
+  font-weight: 500;
+  color: var(--text-color-666);
+}
+
+.dashboard-header .user-info .fas {
+  margin-right: 8px;
+}
+
+/* sidebar */
+.dashboard-sidebar {
+  grid-area: sidebar;
+  background-color: var(--bg-color-gap);
+  color: #f8f9fa;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-sidebar .sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-sidebar .menu-item a {
+  display: flex;
+  align-items: center;
+  padding: 15px 15px;
+  text-decoration: none;
+  color: #adb5bd;
+  transition: background-color 0.3 ease, color 0.3s ease;
+}
+
+.dashboard-sidebar .menu-item a .fas {
+  margin-right: 15px;
+  font-size: 1.1em;
+}
+
+.dashboard-sidebar .menu-item a:hover,
+.dashboard-sidebar .menu-item.active a {
+  background-color: var(--text-color-444);
+  color: white;
+}
+
+/* main */
+.dashboard-main-content {
+  grid-area: main;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f4f7fa;
+}
+
+.dashboard-main-content h1 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.dashboard-main-content p {
+  color: var(--text-color-666);
+  margin-bottom: 20px;
+}
+
+/* card  */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: tranform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 2.5em;
+  color: var(--text-color-blue);
+  min-width: 50px;
+  text-align: center;
+}
+
+.card-content h3 {
+  margin-bottom: 5px;
+  color: var(--text-color-333);
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.card-content .data-trend {
+  font-size: 0.9em;
+  color: var(--text-color-666);
+}
+
+.card-content .data-trend .fas {
+  margin-right: 5px;
+}
+
+.card-content .data-trend .fa-arrow-up {
+  color: #28a745;
+}
+
+.card-content .data-trend .fa-arrow-down {
+  color: #dc3545;
+}
+
+.card-content .data-trend .fa-minus {
+  color: #6c757d;
+}
+
+/* 额外的内容 */
+.additional-section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow:  0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px; 
+}
+
+.additional-section h2 {
+  color: var(--text-color-blue);
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.additional-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.additional-section ul li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+  color: var(--text-color-555);
+}
+
+.additional-section ul li:last-child {
+  border-bottom: none ;
+}

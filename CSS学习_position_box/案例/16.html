@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Card Component</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        background: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .music {
+        width: 300px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .main {
+        position: relative;
+      }
+
+      .bg-image {
+        width: 100%;
+        height: 180px;
+        background-image: url('https://picsum.photos/300/180');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .icon-title {
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 8px 15px;
+        color: white;
+        display: flex;
+        justify-content: space-between; /* 保持左右两端对齐 */
+        align-items: center;
+        font-size: 0.9em;
+      }
+
+      /* 新增：使图标和文本在 .left-content 内水平居中并有间距 */
+      .icon-title .left-content {
+        display: flex; /* 启用 flex 布局 */
+        align-items: center; /* 垂直居中对齐图标和文本 */
+        gap: 5px; /* 在图标和文本之间添加 5px 的间距 */
+      }
+
+      .message {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 15px;
+        width: 100%;
+        color: #333;
+        font-size: 0.9em;
+        line-height: 1.4;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="music">
+        <div class="main">
+          <div class="bg-image"></div>
+          <div class="icon-title">
+            <div class="left-content">
+              <i class="fa-solid fa-music"></i>
+              <span>60万</span>
+            </div>
+            <i class="fa-solid fa-circle-play"></i>
+          </div>
+        </div>
+        <div class="message">
+          天气好的话，把耳机分给我一半吧，我想和你一起听！
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

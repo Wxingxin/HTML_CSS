@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./1.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- header -->
+      <div class="dashboard-header">
+        <div class="logo"><i class="fas fa-chart-line"></i>Dashboard</div>
+        <nav class="main-nav">
+          <a href="#">概览</a><a href="#">报告</a><a href="#">设置</a>
+        </nav>
+        <div class="user-info"><i class="fas fa-user-circle"></i>Admin</div>
+      </div>
+
+      <!-- sidebar -->
+      <div class="dashboard-sidebar">
+        <ul class="sidebar-menu">
+          <li class="menu-item">
+            <a href="#"><i class="fas fa-home"></i> 首页</a>
+          </li>
+          <li class="menu-item">
+            <a href="#"><i class="fas fa-users"></i> 用户</a>
+          </li>
+          <li class="menu-item">
+            <a href="#"><i class="fas fa-project-diagram"></i> 项目</a>
+          </li>
+          <li class="menu-item">
+            <a href="#"><i class="fas fa-cog"></i> 配置</a>
+          </li>
+          <li class="menu-item">
+            <a href="#"><i class="fas fa-sign-out-alt"></i> 登出</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- dashboard-main-content -->
+      <main class="dashboard-main-content">
+        <h1>欢迎来到仪表盘！</h1>
+        <p>这里展示您的关键数据和指标。</p>
+
+        <!-- card  -->
+        <div class="card-grid">
+          <!-- card * 6 -->
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-users"></i></div>
+            <div class="card-content">
+              <h3>新用户</h3>
+              <p class="data-value">1,234</p>
+              <p class="data-trend"><i class="fas fa-arrow-up"></i>12% 增长</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
+            <div class="card-content">
+              <h3>总收入</h3>
+              <p class="data-value">$56,789</p>
+              <p class="data-trend"><i class="fas fa-arrow-up"></i>8% 增长</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-shopping-cart"></i></div>
+            <div class="card-content">
+              <h3>订单数</h3>
+              <p class="data-value">5,678</p>
+              <p class="data-trend"><i class="fas fa-arrow-down"></i>3%下降</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-eye"></i></div>
+            <div class="card-content">
+              <h3>页面浏览量</h3>
+              <p class="data-valule">123,456</p>
+              <p class="data-trend"><i class="fas fa-arrow-up"></i>15%增长</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="card-content">
+              <h3>销售额</h3>
+              <p class="data-value">$2000</p>
+              <p class="data-trend"><i class="fas fa-minus"></i>0$变化</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-comments"></i></div>
+            <div class="card-content">
+              <h3>评论</h3>
+              <p class="card-value">89</p>
+              <p class="card-trend"><i class="fas fa-arrow-up"></i>$5 增长</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- section -->
+        <div class="additional-section">
+          <h2>最新活动</h2>
+          <ul>
+            <li>用户 Jane Doe 注册了一个新账户。</li>
+            <li>产品 "Amazing Widget" 库存已更新。</li>
+            <li>新的报告 "Q1 销售分析" 已生成。</li>
+            <li>新的报告 "Q1 销售分析" 已生成。</li>
+            <li>新的报告 "Q1 销售分析" 已生成。</li>
+            <li>新的报告 "Q1 销售分析" 已生成。</li>
+            <li>新的报告 "Q1 销售分析" 已生成。</li>
+          </ul>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
