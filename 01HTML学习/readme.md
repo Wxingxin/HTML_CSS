@@ -241,46 +241,64 @@
 
 ### 1. 字符编码声明指定页面使用的字符编码，确保文本正确显示：
 
-```js
+```html
 <meta charset="UTF-8">
 ```
 
 ### 2. 页面描述提供页面内容的简短描述，影响搜索引擎结果的显示：
 
 
-`<meta name="description" content="这是一个示例网站，提供编程教程和技术文章。">`
+```html
+<meta name="description" content="这是一个示例网站，提供编程教程和技术文章。">
+```
 
 ### 3. 关键词（对 SEO 影响较小，但仍可使用）
 
-`<meta name="keywords" content="HTML, CSS, JavaScript, 编程, 教程">`
+```html
+<meta name="keywords" content="HTML, CSS, JavaScript, 编程, 教程">
+```
 
 ### 4. 作者信息
 
-`<meta name="author" content="Doubao">`
+```html
+<meta name="author" content="Doubao">
+```
 
 ### 5. 页面刷新 / 重定向
 
 ###### 自动刷新当前页面：
 
-`<meta http-equiv="refresh" content="30">` <!-- 每30秒刷新一次 -->
+```html
+<meta http-equiv="refresh" content="30">
+``` <!-- 每30秒刷新一次 -->
 
 ###### 延迟后重定向到另一个页面：
 
-`<meta http-equiv="refresh" content="5;url=https://www.baidu.com">` <!-- 5秒后跳转 -->
+```html
+<meta http-equiv="refresh" content="5;url=https://www.baidu.com">
+``` <!-- 5秒后跳转 -->
 
 ### 6. 缓存控制控制浏览器如何缓存页面：
 
 
-`<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">`
+```html
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+```
 
-`<meta http-equiv="pragma" content="no-cache">`
+```html
+<meta http-equiv="pragma" content="no-cache">
+```
 
-`<meta http-equiv="expires" content="0">`
+```html
+html<meta http-equiv="expires" content="0">
+```
 
 ### 7. 移动端适配优化页面在移动设备上的显示：
 
 
-`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
 
 width=device-width：页面宽度等于设备屏幕宽度。
 initial-scale=1.0：初始缩放比例为 1:1。
@@ -288,7 +306,9 @@ initial-scale=1.0：初始缩放比例为 1:1。
 
 ## 8. 防止 XSS 攻击
 
-`<meta http-equiv="Content-Security-Policy" content="default-src 'self'">`
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+```
 
 # 常用非标签操作
 
