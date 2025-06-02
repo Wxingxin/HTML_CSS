@@ -24,7 +24,7 @@
 
 `<header>`: 定义文档或某个部分的页眉。
 
-`<hgroup>`: 用于将一组标题元素（`<h1>` 到 
+`<hgroup>`: 用于将一组标题元素（`<h1>` 到
 `<h6>`）组合在一起，通常与一个子标题或标语一起使用。
 
 `<main>`: 定义文档的主体内容，在每个文档中应该只有一个 `<main>` 元素。
@@ -34,7 +34,6 @@
 `<section>`: 定义文档中的一个独立部分，通常有一个标题。
 
 `<table>`: 定义表格。
-
 
 ### 2. 标题元素 这些元素用于定义不同级别的标题，最重要的 <h1> 到最不重要的 <h6>
 
@@ -60,7 +59,6 @@
 `<hr>`：水平线，用于分隔内容。
 
 `<br>`：换行符（虽然是内联元素，但功能上常作为块级使用）。
-
 
 ### 4. 列表标签
 
@@ -111,6 +109,7 @@
 `<datalist>`：预定义选项列表（与 `<input>` 配合使用）
 
 ### 7. 其他块级标签
+
 `<noscript>`：当浏览器不支持脚本时显示的内容。
 
 `<canvas>`：用于绘制图形的区域（默认是块级，但可通过 CSS 修改）。
@@ -171,6 +170,7 @@
 `<abbr>`：缩写或首字母缩写。
 
 ### 3. 引用标签用于短引用或术语定义：
+
 不经常使用
 `<q>`：短引用（浏览器通常会自动添加引号）。
 `<dfn>`：定义术语。
@@ -242,26 +242,25 @@
 ### 1. 字符编码声明指定页面使用的字符编码，确保文本正确显示：
 
 ```html
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 ```
 
 ### 2. 页面描述提供页面内容的简短描述，影响搜索引擎结果的显示：
 
-
 ```html
-<meta name="description" content="这是一个示例网站，提供编程教程和技术文章。">
+<meta name="description" content="这是一个示例网站，提供编程教程和技术文章。" />
 ```
 
 ### 3. 关键词（对 SEO 影响较小，但仍可使用）
 
 ```html
-<meta name="keywords" content="HTML, CSS, JavaScript, 编程, 教程">
+<meta name="keywords" content="HTML, CSS, JavaScript, 编程, 教程" />
 ```
 
 ### 4. 作者信息
 
 ```html
-<meta name="author" content="Doubao">
+<meta name="author" content="Doubao" />
 ```
 
 ### 5. 页面刷新 / 重定向
@@ -269,46 +268,184 @@
 ###### 自动刷新当前页面：
 
 ```html
-<meta http-equiv="refresh" content="30">
-``` <!-- 每30秒刷新一次 -->
+<meta http-equiv="refresh" content="30" />
+```
+
+<!-- 每30秒刷新一次 -->
 
 ###### 延迟后重定向到另一个页面：
 
 ```html
-<meta http-equiv="refresh" content="5;url=https://www.baidu.com">
-``` <!-- 5秒后跳转 -->
+<meta http-equiv="refresh" content="5;url=https://www.baidu.com" />
+```
+
+<!-- 5秒后跳转 -->
 
 ### 6. 缓存控制控制浏览器如何缓存页面：
 
-
 ```html
-<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+<meta
+  http-equiv="cache-control"
+  content="no-cache, no-store, must-revalidate"
+/>
 ```
 
 ```html
-<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="pragma" content="no-cache" />
 ```
 
 ```html
-html<meta http-equiv="expires" content="0">
+html<meta http-equiv="expires" content="0" />
 ```
 
 ### 7. 移动端适配优化页面在移动设备上的显示：
 
-
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
 
 width=device-width：页面宽度等于设备屏幕宽度。
 initial-scale=1.0：初始缩放比例为 1:1。
 
-
 ## 8. 防止 XSS 攻击
 
 ```html
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'" />
 ```
 
 # 常用非标签操作
 
+### **1. 占位文本生成（Lorem Ipsum）**
+
+- **用途**：在设计阶段生成临时文本，测试排版和布局。
+
+- **示例**：
+
+  lorem18
+
+- **快捷键**：在 VS Code 中输入  `lorem`  后按  `Tab`，可自动生成随机文本。
+
+### **2. 注释（Comments）**
+
+- **用途**：添加代码说明，帮助团队协作或未来维护。
+
+- **语法**：
+
+  ```html
+  <!-- 这是一个 HTML 注释 -->
+  ```
+
+### **3. 实体编码（HTML Entities）**
+
+- **用途**：显示 HTML 特殊字符（如  `<`, `>`, `&`, 空格等）。
+
+- **常见实体**：
+
+  | 字符   | 实体编码 | 示例                    |
+  | ------ | -------- | ----------------------- |
+  | `<`    | `&lt;`   | `&lt;div&gt;`           |
+  | `>`    | `&gt;`   | `&gt;/div&lt;`          |
+  | `&`    | `&amp;`  | `example&amp;test`      |
+  | `"`    | `&quot;` | `title=&quot;...&quot;` |
+  | `©`    | `&copy;` | `&copy; 2023`           |
+  | `®`    | `&reg;`  | `产品名称&reg;`         |
+  | `空格` | `&nbsp;` | `Hello&nbsp;World`      |
+
+### **4. 相对路径与绝对路径**
+
+- **用途**：引用外部资源（如图片、CSS、JavaScript）。
+
+- **示例**：
+
+  ```html
+  <!-- 相对路径 -->
+  <img src="images/logo.png">        <!-- 当前目录下的 images 文件夹 -->
+  <script src="../script.js"></script> <!-- 上级目录的 script.js -->
+
+  <!-- 绝对路径 -->
+  <link href="https://cdn.example.com/style.css" rel="stylesheet">
+  ```
+
+### **5. ID 和 Class 选择器**
+
+- **用途**：为元素添加标识符，用于 CSS 样式或 JavaScript 交互。
+
+- **示例**：
+
+  ```html
+  <div id="header" class="main-header">
+    <h1 class="title">标题</h1>
+  </div>
+  ```
+
+### **6. 条件注释（针对 IE 浏览器）**
+
+- **用途**：为特定版本的 Internet Explorer 提供特定代码。
+
+- **示例**：
+
+  ```html
+  <!--[if IE 8]>
+    <script src="ie8-polyfill.js"></script>
+  <![endif]-->
+  ```
+
+### **7. 表单验证属性**
+
+- **用途**：在不使用 JavaScript 的情况下验证表单输入。
+
+- **示例**：
+
+  ```html
+  <input type="email" required placeholder="邮箱地址">
+  <input type="number" min="1" max="100">
+  <input pattern="[A-Za-z]{3}" title="必须输入3个字母">
+  ```
+
+### **8. 数据属性（Data Attributes）**
+
+- **用途**：在 HTML 元素中存储自定义数据，供 JavaScript 使用。
+
+- **示例**：
+
+  ```html
+  <button data-id="123" data-action="delete">删除</button>
+  ```
+
+  ```js
+  const button = document.querySelector('button');
+  console.log(button.dataset.id); // 输出: 123
+  ```
+
+### **9. 内联样式（Inline Styles）**
+
+- **用途**：直接在元素上应用 CSS 样式。
+
+- **示例**：
+
+  ```html
+  <div style="color: red; font-size: 16px;">文本</div>
+  ```
+
+### **10. 表单元素的  `for`  和  `id`  关联**
+
+- **用途**：点击标签时聚焦到对应的表单控件。
+
+- **示例**：
+
+  ```html
+  <label for="username">用户名:</label>
+  <input type="text" id="username" name="username">
+  ```
+
+### **11. 转义字符**
+
+- **用途**：在 JavaScript 或 CSS 中使用特殊字符。
+
+- **示例**：
+
+  ```js
+  <script>
+    const message = 'He said: "Hello!"'; // 使用双引号需要转义
+  </script>
+  ```
