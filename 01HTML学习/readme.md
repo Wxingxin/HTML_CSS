@@ -237,11 +237,12 @@
 <bdo>：双向覆盖（强制文本方向）。
 <wbr>：可选换行符（允许文本在特定位置换行）。
 
-# META
+# META 标签最常见的用途和属性：
 
 ### 1. 字符编码声明指定页面使用的字符编码，确保文本正确显示：
 
-`<meta charset="UTF-8">`
+```js
+<meta charset="UTF-8">```
 
 ### 2. 页面描述提供页面内容的简短描述，影响搜索引擎结果的显示：
 
@@ -264,7 +265,7 @@
 
 ###### 延迟后重定向到另一个页面：
 
-`<meta http-equiv="refresh" content="5;url=https://www.example.com">` <!-- 5秒后跳转 -->
+`<meta http-equiv="refresh" content="5;url=https://www.baidu.com">` <!-- 5秒后跳转 -->
 
 ### 6. 缓存控制控制浏览器如何缓存页面：
 
@@ -287,3 +288,6 @@ initial-scale=1.0：初始缩放比例为 1:1。
 ## 8. 防止 XSS 攻击
 
 `<meta http-equiv="Content-Security-Policy" content="default-src 'self'">`
+
+# 常用非标签操作
+
