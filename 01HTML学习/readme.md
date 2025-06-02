@@ -237,7 +237,101 @@
 <bdo>：双向覆盖（强制文本方向）。
 <wbr>：可选换行符（允许文本在特定位置换行）。
 
-# META 标签最常见的用途和属性：
+# title link meta ：
+
+## title
+
+```html
+<head>
+  <title>Document</title>
+</head>
+```
+
+## link
+
+### **1. 引入 CSS 样式表**
+
+这是  `<link>`  标签最核心的用途，通过  `rel="stylesheet"`  引入外部 CSS 文件：
+
+```html
+<link rel="stylesheet" href="styles.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+/>
+```
+
+- **特性**：
+
+  - 会阻塞页面渲染，建议放在  `<head>`  中尽早加载
+
+  - 支持  `media`  属性适配不同设备：
+
+    ```html
+    <link
+      rel="stylesheet"
+      href="mobile.css"
+      media="screen and (max-width: 600px)"
+    />
+    ```
+
+### **2. 网站图标（Favicon）**
+
+通过  `rel="icon"`  指定网站在浏览器标签页显示的图标：
+
+```html
+<link rel="icon" href="favicon.ico" />
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+```
+
+- **常见图标尺寸**：16x16、32x32、48x48、512x512
+
+- **多设备适配**：
+
+  ```html
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <!-- iOS 设备 -->
+  <link rel="manifest" href="site.webmanifest" />
+  <!-- PWA 应用清单 -->
+  ```
+
+### **3. 预加载资源**
+
+使用  `rel="preload"`  提前加载关键资源（如字体、JS 文件）：
+
+```html
+<link rel="preload" href="font.woff2" as="font" crossorigin />
+<link rel="preload" href="main.js" as="script" />
+```
+
+- **性能优化**：减少资源加载延迟，提升首屏渲染速度
+
+### **4. 预连接与预取**
+
+- **预连接**（Preconnect）：提前建立网络连接
+
+  ```html
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  ```
+
+- **预取**（Prefetch）：提前下载未来可能用到的资源
+
+  ```html
+  <link rel="prefetch" href="next-page.html" />
+  ```
+
+### **5. 引入外部字体**
+
+以 Google Fonts 为例：
+
+```html
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+/>
+```
+
+## meta
 
 ### 1. 字符编码声明指定页面使用的字符编码，确保文本正确显示：
 
@@ -359,11 +453,13 @@ initial-scale=1.0：初始缩放比例为 1:1。
 
   ```html
   <!-- 相对路径 -->
-  <img src="images/logo.png">        <!-- 当前目录下的 images 文件夹 -->
-  <script src="../script.js"></script> <!-- 上级目录的 script.js -->
+  <img src="images/logo.png" />
+  <!-- 当前目录下的 images 文件夹 -->
+  <script src="../script.js"></script>
+  <!-- 上级目录的 script.js -->
 
   <!-- 绝对路径 -->
-  <link href="https://cdn.example.com/style.css" rel="stylesheet">
+  <link href="https://cdn.example.com/style.css" rel="stylesheet" />
   ```
 
 ### **5. ID 和 Class 选择器**
@@ -397,9 +493,9 @@ initial-scale=1.0：初始缩放比例为 1:1。
 - **示例**：
 
   ```html
-  <input type="email" required placeholder="邮箱地址">
-  <input type="number" min="1" max="100">
-  <input pattern="[A-Za-z]{3}" title="必须输入3个字母">
+  <input type="email" required placeholder="邮箱地址" />
+  <input type="number" min="1" max="100" />
+  <input pattern="[A-Za-z]{3}" title="必须输入3个字母" />
   ```
 
 ### **8. 数据属性（Data Attributes）**
@@ -413,7 +509,7 @@ initial-scale=1.0：初始缩放比例为 1:1。
   ```
 
   ```js
-  const button = document.querySelector('button');
+  const button = document.querySelector("button");
   console.log(button.dataset.id); // 输出: 123
   ```
 
@@ -435,7 +531,7 @@ initial-scale=1.0：初始缩放比例为 1:1。
 
   ```html
   <label for="username">用户名:</label>
-  <input type="text" id="username" name="username">
+  <input type="text" id="username" name="username" />
   ```
 
 ### **11. 转义字符**
@@ -445,7 +541,5 @@ initial-scale=1.0：初始缩放比例为 1:1。
 - **示例**：
 
   ```js
-  <script>
-    const message = 'He said: "Hello!"'; // 使用双引号需要转义
-  </script>
+  <script>const message = 'He said: "Hello!"'; // 使用双引号需要转义</script>
   ```
