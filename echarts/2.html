@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>最简单的 ECharts 柱状图</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+      #main {
+        width: 600px; /* 设置图表容器的宽度 */
+        height: 400px; /* 设置图表容器的高度 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main"></div>
+    <script>
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById("main"));
+
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: "简单柱状图", // 图表标题,
+          link: 'http://www.baidu.com',
+          textStyle: {
+            color: 'red',
+            fontSize: '24px'
+          }
+        },
+        xAxis: {
+          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"], // X 轴数据
+        },
+        yAxis: {}, // Y 轴，使用默认配置
+        series: [
+          {
+            name: "销量", // 系列名称，会在 tooltip 和 legend 中显示
+            type: "bar", // 图表类型为柱状图
+            data: [5, 20, 36, 10, 10, 20], // 数据
+          },
+        ],
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>
