@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #272727;
+      }
+
+      .loading {
+        width: 200px;
+        height: 5px;
+        background-color: #fff;
+        animation: moving 2s linear infinite;
+      }
+
+      @keyframes moving {
+        0% {
+          transform: scaleX(0);
+          transform-origin: left;
+        }
+        45% {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+        50% {
+          transform: scaleX(1);
+          transform-origin: right;
+        }
+        100% {
+          transform: scaleX(0);
+          transform-origin: right;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading"></div>
+  </body>
+</html>

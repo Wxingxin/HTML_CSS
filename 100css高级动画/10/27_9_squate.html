@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: blueviolet;
+      }
+
+      .loader {
+        width: 300px;
+        height: 300px;
+        background-color: transparent;
+        position: relative;
+      }
+
+      .s1 {
+        width: 100px;
+        height: 100px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: #fff;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.3s;
+        transform-origin: top left;
+      }
+
+      .s2 {
+        width: 100px;
+        height: 100px;
+        top: 0;
+        left: 100px;
+        position: absolute;
+        background-color: #fff;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.6s;
+        transform-origin: top left;
+      }
+      .s3 {
+        width: 100px;
+        height: 100px;
+        top: 0;
+        left: 200px;
+        position: absolute;
+        background-color: #fff;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.9s;
+        transform-origin: top left;
+      }
+      .s4 {
+        width: 100px;
+        height: 100px;
+        top: 100px;
+        left: 0;
+        position: absolute;
+        background-color: #fff;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.3s;
+        transform-origin: top left;
+      }
+      .s5 {
+        width: 100px;
+        height: 100px;
+        top: 100px;
+        left: 100px;
+        position: absolute;
+        background-color: #fff;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.6s;
+        transform-origin: top left;
+      }
+      .s6 {
+        width: 100px;
+        height: 100px;
+        top: 100px;
+        left: 200px;
+        position: absolute;
+        background-color: #fff;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.9s;
+        transform-origin: top left;
+      }
+      .s7 {
+        width: 100px;
+        height: 100px;
+        top: 200px;
+        left: 0;
+        position: absolute;
+        background-color: #fff;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.3s;
+        transform-origin: top left;
+      }
+
+      .s8 {
+        width: 100px;
+        height: 100px;
+        top: 200px;
+        left: 100px;
+        position: absolute;
+        background-color: #fff;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.6s;
+        transform-origin: top left;
+      }
+
+      .s9 {
+        width: 100px;
+        height: 100px;
+        top: 200px;
+        left: 200px;
+        position: absolute;
+        background-color: #fff;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.9s;
+        transform-origin: top left;
+      }
+
+      @keyframes moving {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader">
+      <span class="s1"></span>
+      <span class="s2"></span>
+      <span class="s3"></span>
+      <span class="s4"></span>
+      <span class="s5"></span>
+      <span class="s6"></span>
+      <span class="s7"></span>
+      <span class="s8"></span>
+      <span class="s9"></span>
+    </div>
+  </body>
+</html>

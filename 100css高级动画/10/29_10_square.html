@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #272727;
+      }
+
+      .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        text-transform: uppercase;
+        color: white;
+        border-top: 10px solid white;
+        border-bottom: 10px solid white;
+      }
+
+      .square {
+        position: absolute;
+        bottom: -100px;
+        background-color: #f2f2f2;
+        animation: moving 10s linear infinite;
+      }
+
+      .square:nth-child(2) {
+        width: 65px;
+        height: 65px;
+        left: 15%;
+        animation-delay: 4s;
+      }
+
+      .square:nth-child(3) {
+        width: 82px;
+        height: 82px;
+        left: 45%;
+        animation-delay: 8s;
+      }
+
+      .square:nth-child(4) {
+        width: 70px;
+        height: 70px;
+        left: 55%;
+        animation-delay: 2s;
+      }
+
+      .square:nth-child(5) {
+        width: 60px;
+        height: 60px;
+        left: 27%;
+        animation-delay: 6s;
+      }
+
+      .square:nth-child(6) {
+        width: 60px;
+        height: 60px;
+        left: 27%;
+        animation-delay: 4s;
+      }
+
+      @keyframes moving {
+        0% {
+          bottom: -100px;
+        }
+        100% {
+          bottom: 100%;
+          transform: rotate(180deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="text">background animation</div>
+    </div>
+  </body>
+</html>

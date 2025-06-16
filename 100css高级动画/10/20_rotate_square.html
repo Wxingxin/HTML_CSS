@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #272727;
+      }
+
+      .container {
+        width: 200px;
+        height: 200px;
+        background-color: transparent;
+        position: relative;
+        transform: rotate(45deg);
+        animation: animation 1s linear infinite;
+        
+      }
+
+      span {
+        animation: rotate 1s linear infinite;
+      }
+
+      span:nth-child(1) {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 0;
+        top: 0;
+        background-color: #fceba7;
+      }
+
+      span:nth-child(2) {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 0;
+        bottom: 0;
+        background-color: #55dbb9;
+      }
+
+      span:nth-child(3) {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        right: 0;
+        top: 0;
+        background-color: #fd6c64;
+      }
+
+      span:nth-child(4) {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        right: 0;
+        bottom: 0;
+        background-color: #1f78b0;
+      }
+
+      @keyframes animation {
+        0% {
+          width: 200px;
+          height: 200px;
+        }
+        25% {
+          width: 230px;
+          height: 230px;
+        }
+        50% {
+          width: 250px;
+          height: 250px;
+        }
+        75% {
+          width: 230px;
+          height: 230px;
+        }
+        100% {
+          width: 200px;
+          height: 200px;
+        }
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(90deg);
+        }
+        75% {
+          transform: rotate(90deg);
+        }
+        100% {
+          transform: rotate(90deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </body>
+</html>

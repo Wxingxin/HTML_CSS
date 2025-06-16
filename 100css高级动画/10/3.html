@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .background {
+        height: 100vh;
+        background: url(./pic/bg.jpg);
+        background-position: bottom left;
+        animation: bg 15s linear infinite;
+      }
+
+      .car {
+        position: absolute;
+        width: 200px;
+        bottom: -50px;
+        left: 300px;
+      }
+
+      .motobike {
+        position: absolute;
+        width: 150px;
+        left: 700px;
+        bottom: 55px;
+      }
+
+      @keyframes bg {
+        from {
+          background-position: bottom left;
+        }
+        to {
+          background-position: bottom right;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <img class="car" src="./pic/car.png" alt="" />
+      <img class="motobike" src="./pic/motobike.png" alt="" />
+    </div>
+  </body>
+</html>

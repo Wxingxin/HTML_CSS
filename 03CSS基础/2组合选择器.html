@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      h2 {
+        background: rebeccapurple;
+      }
+
+      .latter section{
+        background: teal;
+        border-left: 6px solid rebeccapurple;
+      }
+
+      .son > section {
+        border-left: 3px solid rgb(59, 50, 157);
+      }
+
+      h2[class*="at"] + main {
+        border-left: 3px solid teal;
+      }
+
+      h2 ~ p {
+        border-left: 3px solid orange;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>后代选择器</h2>
+    <main class="latter">
+      <section>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, non aspernatur.
+      </section>
+      <address>&copy; weiandgao🚀</address>
+    </main>
+    <hr>
+    <h2>子类选择器</h2>
+    <main class="son">
+      <section>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, non aspernatur.
+      </section>
+      <address>&copy; weiandgao🚀</address>
+    </main>
+    <hr />
+    <h2 class="at">这是相邻兄弟选择器</h2>
+    <main>
+      <span
+        >Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, aut.</span
+      >
+    </main>
+    <main>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, esse?
+    </main>
+    <hr />
+    <h2>这是通用兄弟选择器</h2>
+    <p>与 H2 同级的第一个段落。</p>
+    <div>
+      <span>一些文本</span>
+    </div>
+    <p>与 H2 同级的第二个段落。</p>
+    <h3>另一个标题</h3>
+    <p>与 H2 同级的第三个段落。</p>
+  </body>
+</html>

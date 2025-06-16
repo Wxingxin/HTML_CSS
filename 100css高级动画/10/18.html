@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+        animation: change-bg 8s linear infinite;
+      }
+
+      @keyframes change-bg {
+        0% {
+          background-color: #272727;
+        }
+        20% {
+          background-color: blue;
+        }
+        40% {
+          background-color: purple;
+        }
+        60% {
+          background-color: darkgreen;
+        }
+        80% {
+          background-color: darkred;
+        }
+        100% {
+          background-color: #272727;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Change <br />Background Color</h1>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        background-color: #272727;
+      }
+
+      h1 {
+        font-size: 40px;
+        text-transform: uppercase;
+        letter-spacing: 15px;
+        position: relative;
+        color: white;
+      }
+
+      h1::before {
+        content: 'loading..';
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        color: rgb(231, 231, 59);
+        border-right: 4px solid rgb(231, 231, 59);
+        animation: moving 5s linear infinite;
+        overflow: hidden;
+      }
+
+      @keyframes moving {
+        0% {
+          width: 0;
+        }
+        50% {
+          width: 100%;
+        }
+        100% {
+          width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>loading..</h1>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #212121;
+        font-family: serif;
+      }
+
+      .fig {
+        width: 500px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .fig::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #006266;
+        opacity: 0.5;
+        transform: translateY(100%);
+        transition: all 0.25s;
+        transition-delay: 0.25s;
+      }
+
+      .fig:hover::before {
+        transform: translateY(0);
+        transition-delay: 0s;
+      }
+
+      .fig img {
+        width: 100%;
+      }
+
+      .fig .caption {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.25;
+        transition-delay: 0.2s;
+      }
+
+      .fig:hover .caption {
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: 0.3s;
+      }
+
+      .fig .caption h3 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .fig .caption h5 {
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        background-color: #ae895d;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="fig">
+      <img src="./picture/3.png" alt="" />
+      <div class="caption">
+        <h3>amazing caption!</h3>
+        <h5>you can write anything here!</h5>
+      </div>
+    </div>
+  </body>
+</html>

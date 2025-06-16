@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #6d214f;
+      }
+
+      h2 {
+        font-size: 40px;
+        font-weight: bold;
+        text-transform: uppercase;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      h2::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #6d214f;
+        transform-origin: right;
+        animation: transfrom 4s linear infinite;
+      }
+
+      @keyframes transfrom {
+        0% {
+          transform: scaleX(1);
+        }
+        50% {
+          transform: scaleX(0);
+        }
+        100% {
+          transform: scaleX(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Text Fading Effect</h2>
+  </body>
+</html>

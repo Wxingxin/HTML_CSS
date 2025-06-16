@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .one li:nth-child(2n){
+        color: green;
+      }
+
+      .one li:nth-child(2n + 1){
+        color: tomato;
+      }
+
+      .one li:first-child {
+        color: red;
+      }
+
+      .one li:last-child {
+        color: darkred;
+      }
+
+      ul li:only-child {
+        background: palevioletred;
+      }
+
+      ul:empty {
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: teal;
+        border: 3px dashed gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>nromal</h3>
+    <ul class="one">
+      <li class="item1">item 1</li>
+      <li class="item2">item 2</li>
+      <li class="item3">item 3</li>
+      <li class="item4">item 4</li>
+      <li class="item5">item 5</li>
+      <li class="item6">item 6</li>
+      <li class="item7">item 7</li>
+    </ul>
+    <h3>only one children</h3>
+    <ul>
+      <li>item only </li>
+    </ul>
+    <h3>list is empty</h3>
+    <ul></ul>
+  </body>
+</html>

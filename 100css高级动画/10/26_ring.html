@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #272727;
+      }
+
+      .loader {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .outer {
+        width: 180px;
+        height: 180px;
+        position: absolute;
+        background-color: transparent;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid red;
+        border-right: 4px solid red;
+        border-radius: 50%;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.3s;
+      }
+
+      .middle {
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid green;
+        border-right: 4px solid green;
+        border-radius: 50%;
+        background-color: transparent;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.6s;
+      }
+
+      .inner {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid purple;
+        border-right: 4px solid purple;
+        border-radius: 50%;
+        background-color: transparent;
+        animation: moving 1s linear infinite;
+        animation-delay: 0.9s;
+      }
+
+      .dot {
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border-radius: 50%;
+      }
+
+      @keyframes moving {
+        0% {
+          transform: rotate(0);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="outer"></div>
+      <div class="middle"></div>
+      <div class="inner"></div>
+      <div class="dot"></div>
+    </div>
+  </body>
+</html>

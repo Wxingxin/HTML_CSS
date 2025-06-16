@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        /* background: teal; */
+      }
+
+      a {
+        width: 300px;
+        height: 100px;
+        line-height: 100px;
+        border: 3px solid purple;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        font-size: 30px;
+        transition: all 1s;
+        overflow: hidden;
+      }
+
+      a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: purple;
+        z-index: -1;
+        /* translate X Y 和 100% -100% 可以不同组合 */
+        transform: translateX(-100%);
+        transition: all 1s;
+      }
+
+      a:hover::before {
+        transform: translateX(0);
+      }
+
+      a:hover {
+        color: white;
+      }
+
+    </style>
+  </head>
+  <body>
+    <a href="#">Hover Me</a>
+  </body>
+</html>

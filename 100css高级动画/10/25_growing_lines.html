@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #373737;
+      }
+
+      .loading {
+        width: 60px;
+        display: flex;
+        justify-content: space-around;
+        margin: 5px;
+      }
+
+      .obj {
+        width: 5px;
+        height: 50px;
+        border-radius: 4px;
+        background-color: #fff;
+        animation: moving 0.8s linear infinite;
+        /* transform-origin: bottom; */
+      }
+
+      .obj:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .obj:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .obj:nth-child(4) {
+        animation-delay: 0.3ss;
+      }
+      .obj:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+      .obj:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+      .obj:nth-child(7) {
+        animation-delay: 0.6s;
+      }
+      .obj:nth-child(8) {
+        animation-delay: 0.7s;
+      }
+
+      @keyframes moving {
+        0% {
+          transform: scaleY(0);
+        }
+        50% {
+          transform: scaleY(1);
+        }
+        100% {
+          transform: scaleY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="obj"></div>
+      <div class="obj"></div>
+      <div class="obj"></div>
+      <div class="obj"></div>
+      <div class="obj"></div>
+      <div class="obj"></div>
+      <div class="obj"></div>
+      <div class="obj"></div>
+    </div>
+  </body>
+</html>

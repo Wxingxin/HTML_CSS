@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p:not(.highlight) {
+  color: gray; /* 除了 class 为 highlight 的段落，其他都为灰色 */
+}
+
+section p:first-of-type {
+  text-decoration: underline; /* 每个 section 中第一个 p 带下划线 */
+}
+
+#section1:target {
+  border: 2px solid green; /* 当 URL hash 匹配时显示边框 */
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<p>这是一个普通段落。</p>
+<p class="highlight">这是一个高亮段落。</p>
+<p>这是另一个普通段落。</p>
+
+<section>
+  <p>这是 Section 1 的第一个段落。</p>
+  <span>这是一个 span。</span>
+  <p>这是 Section 1 的第二个段落。</p>
+</section>
+
+<section>
+  <p>这是 Section 2 的第一个段落。</p>
+  <p>这是 Section 2 的第二个段落。</p>
+</section>
+
+<a href="#section1">跳转到 Section 1</a>
+<br><br>
+<div id="section1">
+  <h2>Section 1 内容</h2>
+  <p>当你点击上方链接并 URL 变为 #section1 时，这个 div 会获得边框。</p>
+</div>
+
+</body>
+</html>

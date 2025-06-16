@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      input[type="text"]:enabled {
+        background-color: lightgreen;
+      }
+
+      input[type="text"]:disabled {
+        background-color: #eee;
+        cursor: not-allowed;
+      }
+
+      input[type="checkbox"]:checked + label {
+        font-weight: bold;
+        color: darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="activeInput">可编辑输入:</label>
+    <input type="text" id="activeInput" value="这是可用的" />
+    <br /><br />
+    <label for="disabledInput">禁用输入:</label>
+    <input type="text" id="disabledInput" value="这是禁用的" disabled />
+    <br /><br />
+    <!-- input label互换位置 为了更好的写css-->
+    <input type="checkbox" id="agree" />
+    <label for="agree">我同意条款</label>
+  </body>
+</html>

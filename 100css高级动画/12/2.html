@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #222;
+      }
+
+      h2 {
+        position: relative;
+        font-size: 3em;
+        letter-spacing: 0.05em;
+        cursor: default;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      h2 span {
+        color: #555;
+        transition: 0.25s;
+      }
+
+      h2:hover span {
+        color: #00ff2a;
+        text-shadow: 0 0 5px #0f0, 0 0 15px #0f0, 0 0 30px #0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="text">Javascript Text</h2>
+    <script>
+      let text = document.querySelector(".text");
+      let spans = text.innerText
+        .split("")
+        .map((letter, i) => {
+          return `<span>${letter}</span>`;
+        })
+        .join("");
+      text.innerHTML = spans;
+      console.log(spans);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        position: relative;
+        width: 800px;
+        height: 500px;
+        background-color: #222;
+      }
+
+      .clip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: all 0.5s;
+      }
+
+      .clip1 {
+        background: url(1.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .clip2 {
+        background: url(2.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .clip3 {
+        background: url(3.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="clip clip1"></div>
+      <div class="clip clip2"></div>
+      <div class="clip clip3"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.card {
+  position: relative; /* 关键：为伪元素提供定位上下文 */
+  width: 250px;
+  height: 150px;
+  border: 2px solid #ccc;
+  margin: 50px;
+  background-color: #f0f8ff;
+  overflow: hidden; /* 防止伪元素内容溢出 */
+}
+
+.card::before {
+  content: "NEW";
+  display: block; /* 必须转换为块级才能设置尺寸 */
+  position: absolute; /* 绝对定位 */
+  top: 10px; /* 距离父元素顶部10px */
+  right: 10px; /* 距离父元素右侧10px */
+  background-color: #ff4500;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1; /* 确保在内容之上 */
+}
+
+.card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* 宽度与父元素相同 */
+  height: 100%; /* 高度与父元素相同 */
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+  opacity: 0; /* 默认隐藏 */
+  transition: opacity 0.3s ease;
+  z-index: 0; /* 在内容之下 */
+}
+
+.card:hover::after {
+  opacity: 1; /* 鼠标悬停时显示覆盖层 */
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h3>产品标题</h3>
+  <p>产品描述内容。</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #333;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 30px;
+        padding: 40px 80px;
+        border: 3px solid white;
+        transition: all 0.3s;
+      }
+
+      a:hover {
+        color: red;
+        border: 3px solid red;
+        animation: shake 0.3s linear 1;
+      }
+
+      @keyframes shake {
+        33% {
+          transform: rotate(10deg);
+        }
+        66% {
+          transform: rotate(-10deg);
+        }
+        100% {
+          transform: rotate(10deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#">Hover Me</a>
+  </body>
+</html>
