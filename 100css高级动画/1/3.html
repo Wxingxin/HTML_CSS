@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        height: 100vh;
+        background-color: teal;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+      }
+
+      .move {
+        background-color: tomato;
+        width: 200px;
+        height: 60px;
+        border-radius: 10px;
+        text-align: center;
+        line-height: 60px;
+        transition-property: transform();
+        transition-duration: 3s;
+      }
+
+      .move:nth-child(1) {
+        transition-timing-function: ease;
+      }
+      .move:nth-child(2) {
+        transition-timing-function: linear;
+      }
+      .move:nth-child(3) {
+        transition-timing-function: ease-in;
+      }
+      .move:nth-child(4) {
+        transition-timing-function: ease-out;
+      }
+      .move:nth-child(5) {
+        transition-timing-function: ease-in-out;
+      }
+      .move:hover {
+        transform: translateX(600px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="move">ease</div>
+      <div class="move">liner</div>
+      <div class="move">ease-in</div>
+      <div class="move">ease-out</div>
+      <div class="move">ease-in-out</div>
+    </div>
+  </body>
+</html>

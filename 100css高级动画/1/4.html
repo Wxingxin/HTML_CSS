@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+      }
+
+      div {
+        width: 200px;
+        height: 60px;
+        background-color: rebeccapurple;
+        line-height: 60px;
+        text-align: center;
+        transition: color 2s linear 0s;
+      }
+
+      div:hover {
+        color: white;
+        background-color: teal;
+        width: 240px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>Hover me</div>
+  </body>
+</html>

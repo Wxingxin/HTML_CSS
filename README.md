@@ -713,11 +713,9 @@ CSS Grid 也是现代布局利器，同样提供强大的对齐功能。
 
 **HTML 示例:**
 
-```css
+```html
 <div class="grid-container">
-    <div class="center-div-grid">
-        这是一个使用 CSS Grid 居中的 div。
-    </div>
+  <div class="center-div-grid">这是一个使用 CSS Grid 居中的 div。</div>
 </div>
 ```
 
@@ -1032,7 +1030,160 @@ Flexbox 同样适用于行内内容的垂直居中，且对多行文本或包含
 
   # 如何使用 CSS 实现单行多行文本溢出处理
 
-#### 1. 单行文本溢出
+# 响应式设计是什么？原理？
+
+是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本
+
+基本原理是通过媒体查询检测不同设备屏幕尺寸做处理。
+
+页面头部必须有 meta 声明 viewport
+
+```html
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+/>
+```
+
+# transition transform animation
+
+### transition 和 animation 有何区别？
+
+- transition: 用于做过渡效果，没有帧概念，只有开始和结束状态，性能开销小
+- animate：用于做动画，有帧的概念，可以重复触发且有中间状态，性能开销比较大，主动触发
+
+# div
+
+### 1 让元素消失
+
+1. 直接更改盒子模型
+
+2. display:none
+
+3. visibility: hidden
+
+4. opacity: 0
+
+5. clip-path: 截取范围 100% 就没有了
+
+6. transform： 缩放 旋转 变形
+
+7. 移动元素 1 margin-top:-9999px
+
+8. 移动元素 2 position:absolute
+
+### 2 BFC
+
+#### 1. **是什么 (Definition):**
+
+BFC 是一个独立的渲染区域，规定了内部块级盒子（Block-level boxes）如何布局。
+
+#### 2. 在 html 中的块级元素是不是都在 bfc 中，即使父 div 没有开启 bfc？
+
+是的，你的理解是正确的！**在 HTML 中，所有的块级元素（Block-level elements）最终都存在于某个块格式化上下文 (BFC) 之中。**
+
+原因如下：
+
+1.  **根元素    自动创建 BFC:**   页面上所有可见元素都嵌套在    元素内。根据 CSS 规范，  元素本身就会自动创建整个文档的**根 BFC (Root BFC)** 。
+1.  **默认归属:**   如果一个块级元素（比如你的  div) 的父元素**没有**通过特定 CSS 属性（如  overflow: hidden, display: flow-root, float: left, position: absolute  等）来创建**新的、嵌套的 BFC**，那么这个块级元素就**默认属于其父元素所在的那个 BFC**。
+1.  **传递性:**   这个归属关系会一直向上追溯，直到找到一个创建了 BFC 的祖先元素。由于    总是创建 BFC，所以任何元素最终都会归属于至少一个 BFC（最差也是根 BFC）。
+
+**总结来说：**
+
+- **所有块级元素都位于某个 BFC 内。**
+- 如果一个元素的直接父元素没有明确创建新的 BFC，那么这个元素就和它的父元素（以及它的兄弟元素）一起，位于**同一个**更上层的 BFC 中（最终可以追溯到    创建的根 BFC）。
+- **这正是为什么即使父  div  没有“开启 BFC”，其内部的相邻块级子元素（如  .box3  和  .box5）之间仍然会发生外边距塌陷** —— 因为它们处于同一个（通常是上层的）BFC 环境中，满足了塌陷的条件。
+
+#### 3. **如何触发/创建 BFC (Triggers):**
+
+一个元素要形成 BFC，需要满足以下**至少一个**条件：
+
+- 根元素 () 本身就是一个 BFC。 - 浮动元素 (float 值不为 none)。
+- 绝对定位元素 (position 值为 absolute 或 fixed)。
+- 行内块元素 (display: inline-block)。
+- 表格单元格 (display: table-cell，HTML 表格单元格默认属性)。
+- 表格标题 (display: table-caption)。
+- 匿名表格单元格元素（display: table、table-row、table-row-group、table-header-group、table-footer-group 的直接子元素，如果不是 table-cell，则会创建匿名单元格，该单元格是 BFC）。
+- overflow 值不为 visible 或 clip 的块元素（即 overflow: hidden, auto, scroll)。**这是开发中最常用来手动创建 BFC 的方式之一。**
+- display: flow-root。**这是专门为了创建无副作用 BFC 而设计的现代 CSS 属性。**
+- 弹性元素（display: flex 或 inline-flex 的直接子元素）。
+- 网格元素（display: grid 或 inline-grid 的直接子元素）。
+- 多列容器（column-count 或 column-width 值不为 auto，包括 column-count: 1）。
+
+#### 4. **BFC 的特性/布局规则 (Characteristics/Rules):**
+
+- **内部垂直布局:** 在 BFC 内部，块级盒子在垂直方向上一个接一个地放置，从包含块的顶部开始。 - **盒子间垂直距离:** 同一个 BFC 内的两个相邻块级盒子的垂直外边距会发生**塌陷 (Margin Collapsing)** 。
+- **外边距不塌陷:** **关键点！** BFC 区域**不会**与外部元素的垂直外边距发生塌陷。也就是说，属于不同 BFC 的相邻块级盒子的垂直外边距不会塌陷。
+- **包含浮动元素:** **关键点！** BFC 可以包含其内部的浮动元素。计算 BFC 的高度时，其内部的浮动元素也会参与计算。这意味着 BFC 不会发生高度塌陷（即父元素高度为 0，即使内部有浮动元素）。
+- **隔离性:** BFC 的区域**不会**与外部的浮动元素重叠。它就像一道屏障，阻止外部浮动元素侵入其内部，也阻止其内部布局影响外部。
+
+#### 5. **BFC 的应用/解决了什么问题 (Applications):**
+
+基于 BFC 的特性，它可以用来解决很多常见的 CSS 布局问题：
+
+- **防止外边距塌陷 (Prevent Margin Collapsing):** 当两个相邻元素（兄弟或父子）的垂直外边距相遇时可能发生塌陷。将其中一个元素包裹在一个 BFC 容器中，可以阻止它与外部元素的边距塌陷。例如，给父元素创建 BFC 可以阻止子元素 margin-top 传递给父元素（父子边距塌陷的一种情况）。
+- **清除浮动/包含浮动 (Clear/Contain Floats):** 当一个容器内的所有子元素都浮动时，父容器的高度会塌陷为 0。给父容器创建 BFC（如设置 overflow: hidden 或 display: flow-root）可以强制它包裹住内部的浮动元素，从而正确计算高度。这是最常见的 BFC 应用之一，常被称为“自清除”浮动。
+- **阻止元素被浮动元素覆盖 (Prevent Text Wrapping Around Floats):** 创建一个多列布局，例如左侧栏浮动，右侧主内容区自适应。如果不做处理，右侧内容区的文字可能会环绕左侧浮动元素。将右侧主内容区设置为 BFC，可以使其形成一个独立的布局区域，不会与左侧的浮动元素发生重叠，内容也不会环绕。
+
+#### 6. **现代方法 (display: flow-root):**
+
+过去常用 overflow: hidden/auto/scroll 来创建 BFC 以清除浮动或解决其他布局问题，但这可能会带来不必要的副作用（如内容被裁剪、出现滚动条）。display: flow-root 是 CSS Display Module Level 3 中引入的新值，它的唯一目的就是创建一个无副作用的 BFC，是现代 CSS 中解决上述问题的**首选方案**。
+
+#### 7. 没有 BFC 会发生什么
+
+| 问题描述               | 原因                                   |
+| ---------------------- | -------------------------------------- |
+| 父元素高度塌陷         | 子元素浮动，没有被包含                 |
+| 相邻元素 margin 合并   | 没有 BFC，margin 发生合并              |
+| 后续元素被浮动元素影响 | 没有触发 BFC，浮动没有被隔离           |
+| 布局混乱、难以控制     | 缺乏独立格式化上下文，元素之间相互干扰 |
+
+### 3 div 水平居中
+
+### 4 div 垂直居中
+
+2. `align-items: center;` /_ 使子项在交叉轴（垂直方向）上居中 _/
+
+3. `place-items: center;` 同时在水平和垂直方向上居中内容 或者使用 `align-items: center;`
+
+4. 这种方法通过绝对定位和 transform 属性来实现元素的精确居中，适用于任何元素类型
+
+   ```css
+   .container {
+     position: relative; /* 父容器需要有定位上下文 */
+     height: 150px; /* 父容器的高度 */
+     background-color: #f0f0f0;
+   }
+
+   .text {
+     position: absolute; /* 子元素绝对定位 */
+     top: 50%; /* 顶部偏移50% */
+     left: 50%; /* 左侧偏移50%（如果也需要水平居中） */
+     transform: translate(-50%, -50%); /* 向上和向左各偏移自身宽/高的一半 */
+     width: max-content; /* 让宽度自适应内容，避免多行文本换行问题 */
+     /* 或者设置一个固定宽度和 text-align: center; */
+   }
+   ```
+
+# 关于文本的
+
+### 1 为什么浏览器默认最小字体是 12px？
+
+1. 可读性： 12px 通常被认为是 PC 端屏幕上文字可读性的一个经验下限。小于 12px 的字体在大多数显示器上会变得难以辨认，影响用户体验。
+
+2. 兼容性： 早期浏览器在处理小于 12px 的字体时，可能会出现渲染问题或显示效果不佳。为了统一和保证基本的可读性，大多数浏览器设定了最小字体大小。
+
+3. 防止滥用： 限制最小字体大小可以防止开发者过度使用极小的字体，从而损害用户体验。
+
+### 2 如何实现字体小于 12px?
+
+1. 这是目前最常用也是效果最好的方法，因为它实际上是渲染了一个正常大小的字体，然后过 CSS 的 transform 属性对其进行视觉上的缩小，因此不会有字体渲染模糊的问题
+
+2. 使用图片代替 (针对少量固定文本)
+
+3. 使用 SVG
+
+### 3 单行文本溢出
 
 - **`white-space: nowrap;`** : 强制文本不换行。
 
@@ -1060,7 +1211,7 @@ Flexbox 同样适用于行内内容的垂直居中，且对多行文本或包含
 </html>
 ```
 
-#### 2. 多行文本溢出
+### 4 多行文本溢出
 
 ```html
 <!DOCTYPE html>
@@ -1086,368 +1237,18 @@ Flexbox 同样适用于行内内容的垂直居中，且对多行文本或包含
 </html>
 ```
 
-# 响应式设计是什么？原理？
+### 5 css 文本水平居中（块级元素和行内块级元素）
 
-是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本
+1. text-align: center
 
-基本原理是通过媒体查询检测不同设备屏幕尺寸做处理。
+### 6 css 文本垂直居中（块级元素和行内块级元素）
 
-页面头部必须有 meta 声明 viewport
+1. `line-height` （单行文本） 将行高 (line-height) 设置为与父容器高度相同。
 
-```html
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-/>
-```
+# 关于 基本选择器 伪类选择器 伪元素选择器
 
-# transition 和 animation 有何区别？
+### div:nth-child(2n + 1) div:nth-of-type(2n + 1)
 
-- transition: 用于做过渡效果，没有帧概念，只有开始和结束状态，性能开销小
-- animate：用于做动画，有帧的概念，可以重复触发且有中间状态，性能开销比较大，主动触发
+1. `div:nth-child(2n + 1)` 先满足奇数行即可，再满足是 div
 
-# BFC
-
-## 1. **是什么 (Definition):**
-
-BFC 是一个独立的渲染区域，规定了内部块级盒子（Block-level boxes）如何布局。
-
-## 2. 在 html 中的块级元素是不是都在 bfc 中，即使父 div 没有开启 bfc？
-
-是的，你的理解是正确的！**在 HTML 中，所有的块级元素（Block-level elements）最终都存在于某个块格式化上下文 (BFC) 之中。**
-
-原因如下：
-
-1.  **根元素    自动创建 BFC:**   页面上所有可见元素都嵌套在    元素内。根据 CSS 规范，  元素本身就会自动创建整个文档的**根 BFC (Root BFC)** 。
-1.  **默认归属:**   如果一个块级元素（比如你的  div) 的父元素**没有**通过特定 CSS 属性（如  overflow: hidden, display: flow-root, float: left, position: absolute  等）来创建**新的、嵌套的 BFC**，那么这个块级元素就**默认属于其父元素所在的那个 BFC**。
-1.  **传递性:**   这个归属关系会一直向上追溯，直到找到一个创建了 BFC 的祖先元素。由于    总是创建 BFC，所以任何元素最终都会归属于至少一个 BFC（最差也是根 BFC）。
-
-**总结来说：**
-
-- **所有块级元素都位于某个 BFC 内。**
-- 如果一个元素的直接父元素没有明确创建新的 BFC，那么这个元素就和它的父元素（以及它的兄弟元素）一起，位于**同一个**更上层的 BFC 中（最终可以追溯到    创建的根 BFC）。
-- **这正是为什么即使父  div  没有“开启 BFC”，其内部的相邻块级子元素（如  .box3  和  .box5）之间仍然会发生外边距塌陷** —— 因为它们处于同一个（通常是上层的）BFC 环境中，满足了塌陷的条件。
-
-## 3. **如何触发/创建 BFC (Triggers):**
-
-一个元素要形成 BFC，需要满足以下**至少一个**条件：
-
-- 根元素 () 本身就是一个 BFC。 - 浮动元素 (float 值不为 none)。
-- 绝对定位元素 (position 值为 absolute 或 fixed)。
-- 行内块元素 (display: inline-block)。
-- 表格单元格 (display: table-cell，HTML 表格单元格默认属性)。
-- 表格标题 (display: table-caption)。
-- 匿名表格单元格元素（display: table、table-row、table-row-group、table-header-group、table-footer-group 的直接子元素，如果不是 table-cell，则会创建匿名单元格，该单元格是 BFC）。
-- overflow 值不为 visible 或 clip 的块元素（即 overflow: hidden, auto, scroll)。**这是开发中最常用来手动创建 BFC 的方式之一。**
-- display: flow-root。**这是专门为了创建无副作用 BFC 而设计的现代 CSS 属性。**
-- 弹性元素（display: flex 或 inline-flex 的直接子元素）。
-- 网格元素（display: grid 或 inline-grid 的直接子元素）。
-- 多列容器（column-count 或 column-width 值不为 auto，包括 column-count: 1）。
-
-## 4. **BFC 的特性/布局规则 (Characteristics/Rules):**
-
-- **内部垂直布局:** 在 BFC 内部，块级盒子在垂直方向上一个接一个地放置，从包含块的顶部开始。 - **盒子间垂直距离:** 同一个 BFC 内的两个相邻块级盒子的垂直外边距会发生**塌陷 (Margin Collapsing)** 。
-- **外边距不塌陷:** **关键点！** BFC 区域**不会**与外部元素的垂直外边距发生塌陷。也就是说，属于不同 BFC 的相邻块级盒子的垂直外边距不会塌陷。
-- **包含浮动元素:** **关键点！** BFC 可以包含其内部的浮动元素。计算 BFC 的高度时，其内部的浮动元素也会参与计算。这意味着 BFC 不会发生高度塌陷（即父元素高度为 0，即使内部有浮动元素）。
-- **隔离性:** BFC 的区域**不会**与外部的浮动元素重叠。它就像一道屏障，阻止外部浮动元素侵入其内部，也阻止其内部布局影响外部。
-
-## 5. **BFC 的应用/解决了什么问题 (Applications):**
-
-基于 BFC 的特性，它可以用来解决很多常见的 CSS 布局问题：
-
-- **防止外边距塌陷 (Prevent Margin Collapsing):** 当两个相邻元素（兄弟或父子）的垂直外边距相遇时可能发生塌陷。将其中一个元素包裹在一个 BFC 容器中，可以阻止它与外部元素的边距塌陷。例如，给父元素创建 BFC 可以阻止子元素 margin-top 传递给父元素（父子边距塌陷的一种情况）。
-- **清除浮动/包含浮动 (Clear/Contain Floats):** 当一个容器内的所有子元素都浮动时，父容器的高度会塌陷为 0。给父容器创建 BFC（如设置 overflow: hidden 或 display: flow-root）可以强制它包裹住内部的浮动元素，从而正确计算高度。这是最常见的 BFC 应用之一，常被称为“自清除”浮动。
-- **阻止元素被浮动元素覆盖 (Prevent Text Wrapping Around Floats):** 创建一个多列布局，例如左侧栏浮动，右侧主内容区自适应。如果不做处理，右侧内容区的文字可能会环绕左侧浮动元素。将右侧主内容区设置为 BFC，可以使其形成一个独立的布局区域，不会与左侧的浮动元素发生重叠，内容也不会环绕。
-
-## 6. **现代方法 (display: flow-root):**
-
-过去常用 overflow: hidden/auto/scroll 来创建 BFC 以清除浮动或解决其他布局问题，但这可能会带来不必要的副作用（如内容被裁剪、出现滚动条）。display: flow-root 是 CSS Display Module Level 3 中引入的新值，它的唯一目的就是创建一个无副作用的 BFC，是现代 CSS 中解决上述问题的**首选方案**。
-
-## 7. 没有 BFC 会发生什么
-
-| 问题描述               | 原因                                   |
-| ---------------------- | -------------------------------------- |
-| 父元素高度塌陷         | 子元素浮动，没有被包含                 |
-| 相邻元素 margin 合并   | 没有 BFC，margin 发生合并              |
-| 后续元素被浮动元素影响 | 没有触发 BFC，浮动没有被隔离           |
-| 布局混乱、难以控制     | 缺乏独立格式化上下文，元素之间相互干扰 |
-
-
-# 绘制基本几何图形
-
-#### 1.1 正方形 / 长方形
-
-这是最基础的。通过设置 `width` 和 `height` 即可。
-
-```css
-.square {
-    width: 100px;
-    height: 100px;
-    background-color: blue;
-}
-
-.rectangle {
-    width: 150px;
-    height: 80px;
-    background-color: green;
-}
-```
-
-#### 1.2 圆形
-
-在正方形的基础上，通过 `border-radius: 50%;` 实现。
-
-```css
-.circle {
-    width: 100px;
-    height: 100px; /* 必须是等宽等高 */
-    background-color: red;
-    border-radius: 50%; /* 将边角半径设置为50% */
-}
-```
-
-#### 1.3 椭圆形
-
-在长方形的基础上，通过 `border-radius: 50%;` 实现。
-
-```css
-.oval {
-    width: 150px;
-    height: 80px;
-    background-color: purple;
-    border-radius: 50%; /* 将边角半径设置为50% */
-}
-```
-
-### 2. 绘制三角形
-
-利用 CSS 的 `border` 属性特性来绘制三角形。当一个元素的宽度和高度都为 0，但有边框时，边框的交界处会形成三角形。
-
-```css
-/* 向上三角形 */
-.triangle-up {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent; /* 左边框透明 */
-    border-right: 50px solid transparent; /* 右边框透明 */
-    border-bottom: 100px solid blue; /* 底部边框实色，形成三角形的底边 */
-}
-
-/* 向下三角形 */
-.triangle-down {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 100px solid green;
-}
-
-/* 向左三角形 */
-.triangle-left {
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
-    border-right: 100px solid red;
-}
-
-/* 向右三角形 */
-.triangle-right {
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
-    border-left: 100px solid purple;
-}
-```
-
-### 3. 绘制半圆形 / 扇形
-
-利用 `border-radius` 和 `overflow: hidden` 或者结合伪元素。
-
-#### 3.1 半圆形 (通过 `border-radius` 和 `overflow: hidden`)
-
-```css
-/* 上半圆 */
-.half-circle-top {
-    width: 100px;
-    height: 50px; /* 高度是宽度的一半 */
-    background-color: orange;
-    border-top-left-radius: 50px; /* 左右顶部半径为高度 */
-    border-top-right-radius: 50px;
-    /* 或者简写 border-radius: 50px 50px 0 0; */
-}
-
-/* 下半圆 */
-.half-circle-bottom {
-    width: 100px;
-    height: 50px;
-    background-color: darkorange;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    /* 或者简写 border-radius: 0 0 50px 50px; */
-}
-
-/* 左右半圆类似，调整 width/height 和 border-radius */
-```
-
-#### 3.2 扇形 (通常结合 `transform` 旋转伪元素，或者 SVG)
-
-用纯 CSS 绘制任意角度的扇形会比较复杂，通常涉及到 `transform` 旋转和伪元素。
-
-**简单扇形 (四分之一圆)：**
-
-```css
-.quarter-circle {
-    width: 100px;
-    height: 100px;
-    background-color: lightblue;
-    border-top-left-radius: 100%; /* 或 100px，等于 width/height */
-    /* 只保留一个角的圆角 */
-    overflow: hidden; /* 确保不溢出 */
-}
-```
-
-**复杂扇形 (使用伪元素和旋转，实现任意角度则更复杂)：**
-
-```css
-/* 以绘制一个 90度 扇形为例 (左下角) */
-.pie-slice {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    background-color: transparent; /* 背景透明 */
-    border-bottom-left-radius: 100%; /* 形成四分之一圆 */
-    overflow: hidden;
-}
-
-.pie-slice::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: hotpink; /* 扇形颜色 */
-    /* 配合父元素的 border-radius 和 overflow: hidden 裁剪 */
-}
-```
-
-### 4. 绘制心形 (Love Heart)
-
-心形通常通过两个旋转的圆形和下方一个正方形/矩形组成。
-
-```css
-.heart {
-    position: relative;
-    width: 100px;
-    height: 90px; /* 调整高度以适配比例 */
-    background-color: red;
-    transform: rotate(-45deg); /* 旋转45度 */
-    transform-origin: 50% 50%; /* 确保旋转中心在中间 */
-    margin: 50px; /* 避免和页面边缘重叠 */
-}
-
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    border-radius: 50%; /* 形成圆形 */
-}
-
-.heart::before {
-    top: -50px; /* 向上移动，形成左边圆弧 */
-    left: 0;
-}
-
-.heart::after {
-    left: 50px; /* 向右移动，形成右边圆弧 */
-    top: 0;
-}
-```
-
-### 5. 绘制多边形 (使用 `clip-path`)
-
-`clip-path` 属性允许你创建一个剪裁区域，只有在区域内的部分是可见的。这使得绘制复杂的多边形变得容易。
-
--   `polygon()`: 定义一个多边形，接受一系列 x y 坐标。
--   `circle()`: 定义一个圆形。
--   `ellipse()`: 定义一个椭圆形。
--   `inset()`: 定义一个矩形。
-
-```css
-/* 六边形 */
-.hexagon {
-    width: 100px;
-    height: 100px;
-    background-color: teal;
-    /* 定义六个点的坐标 */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-
-/* 八边形 */
-.octagon {
-    width: 120px;
-    height: 120px;
-    background-color: darkcyan;
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-}
-
-/* 星形 (更复杂，需要更多点) */
-.star {
-    width: 150px;
-    height: 150px;
-    background-color: gold;
-    clip-path: polygon(
-        50% 0%,
-        61% 35%,
-        98% 35%,
-        68% 57%,
-        79% 91%,
-        50% 70%,
-        21% 91%,
-        32% 57%,
-        2% 35%,
-        39% 35%
-    );
-}
-```
-
-**兼容性注意：** `clip-path` 在现代浏览器中支持良好，但对于旧版本浏览器可能需要 `-webkit-clip-path` 前缀。如果需要更广泛的兼容性，可能需要回退方案或 SVG。
-
-### 6. 绘制加载动画 (Loading Spinners)
-
-使用 CSS 动画 (`@keyframes`) 和 `border` 属性可以创建各种加载动画。
-
-```css
-.spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border-left-color: #09f; /* 局部边框颜色 */
-    animation: spin 1s linear infinite; /* 应用动画 */
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-```
-
-### 总结
-
-在面试中，考察 CSS 绘制图形的能力通常是希望看到：
-
--   **对基本 CSS 属性的熟练掌握：** `width`, `height`, `background-color`, `border`, `border-radius`。
--   **对 `transform` 和 `position` 的理解：** 用于定位和旋转元素，实现复杂图形。
--   **对伪元素 (`::before`, `::after`) 的运用：** 常常用于构建更复杂的图形部件。
--   **对现代 CSS 属性的了解：** 如 `clip-path` 用于多边形、`@keyframes` 用于动画。
--   **解决问题的思路：** 如何将复杂图形分解成简单的 CSS 形状组合。
+2. `div:nth-of-type(2n + 1)` 先过滤所有的 div，再找奇数行的 div
