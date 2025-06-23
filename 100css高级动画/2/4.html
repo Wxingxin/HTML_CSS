@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      img {
+        width: 300px;
+        transition: transform 2s linear;
+      }
+
+      img:nth-child(1):hover{
+        transform: rotate(270deg);
+      }
+      img:nth-child(2):hover{
+        transform: rotate(-90deg);
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./pic/cat.jpg" alt="" />
+    <img src="./pic/cat.jpg" alt="" />
+  </body>
+</html>

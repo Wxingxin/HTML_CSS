@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #272727;
+      }
+
+      a {
+        width: 200px;
+        height: 100px;
+        outline: 1px solid black;
+        text-align: center;
+        line-height: 100px;
+        font-size: 30px;
+        text-decoration: none;
+        color: yellow;
+        text-transform: uppercase;
+        position: relative;
+      }
+
+      a::before {
+        content: "";
+        position: absolute;
+        width: 10%;
+        height: 20%;
+        top: 50%;
+        left: 0;
+        border-radius: 50%;
+        background-color: yellow;
+        transform: translateY(-50%);
+        box-shadow: -100px 0 0 teal;
+        transition: all 0.3s;
+      }
+
+      a:hover::before {
+        left: 50%;
+        box-shadow: 30px 0 0 yellow;
+        transform: translateX(50%) translateY(-50%);
+      }
+
+      a::after {
+        content: "";
+        position: absolute;
+        width: 10%;
+        height: 20%;
+        top: 50%;
+        right: 0;
+        border-radius: 50%;
+        background-color: yellow;
+        transform: translateY(-50%);
+        box-shadow: 100px 0 0 teal;
+        transition: all 0.3s;
+      }
+
+      a:hover::after {
+        right: 50%;
+        box-shadow: -30px 0 0 yellow;
+        transform: translateX(50%) translateY(-50%);
+      }
+
+      span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: yellow;
+        transition-delay: 0.3s;
+        border-radius: 10px;
+        transition: all 0.3s;
+        z-index: -1;
+        opacity: 0;
+      }
+
+      span:hover {
+        opacity: 1;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#"><span></span>hover me</a>
+  </body>
+</html>

@@ -6,54 +6,58 @@
     <title>Document</title>
     <style>
       * {
-        margin: 0;
         padding: 0;
+        margin: 0;
         box-sizing: border-box;
       }
 
       body {
         height: 100vh;
-        width: 100vw;
         display: flex;
-        flex-flow: row wrap;
         justify-content: center;
         align-items: center;
-        background: teal;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
 
       a {
-        width: 300px;
-        height: 180px;
-        border: 5px solid black;
-        position: relative;
-        /* background: brown; */
+        width: 200px;
+        height: 80px;
+        border: 3px solid teal;
         text-align: center;
+        line-height: 80px;
         text-decoration: none;
-        font-size: 30px;
-        line-height: 180px;
+        font-size: 25px;
+        color: teal;
+        font-weight: bold;
+        text-transform: capitalize;
+        position: relative;
         overflow: hidden;
+        transition: all 0.5s;
       }
 
       a::before {
         content: '';
         position: absolute;
-        left: 0;
-        top: 0;
         width: 100%;
         height: 100%;
-        background: yellow;
+        top: 0;
+        left: 0;
+        background-color: teal;
+        transform: translate(-100%);
+        transition: all 0.5s;
         z-index: -1;
-        transition: transform 1s;
-        transform-origin: bottom left;
-        transform: rotate(-90deg);
       }
 
       a:hover::before {
-        transform: rotate(0);
+        transform: translate(0);
+      }
+
+      a:hover {
+        color: white;
       }
     </style>
   </head>
   <body>
-    <a href="#">Hover Me</a>
+    <a href="#">hover me</a>
   </body>
 </html>

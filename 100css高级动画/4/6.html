@@ -12,53 +12,46 @@
       }
 
       body {
-        width: 100vw;
         height: 100vh;
         display: flex;
-        flex-flow: row wrap;
         justify-content: center;
         align-items: center;
-        /* background: teal; */
       }
 
       a {
-        width: 300px;
-        height: 100px;
-        line-height: 100px;
-        border: 3px solid purple;
-        position: relative;
+        width: 230px;
+        height: 80px;
+        border: 3px solid black;
         text-align: center;
+        line-height: 80px;
+        text-transform: capitalize;
         text-decoration: none;
-        font-size: 30px;
-        transition: all 1s;
+        font-size: 25px;
+        color: black;
+        position: relative;
         overflow: hidden;
       }
 
       a::before {
-        content: "";
+        content: 'yeah!';
         position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
         width: 100%;
-        background-color: purple;
-        z-index: -1;
-        /* translate X Y 和 100% -100% 可以不同组合 */
-        transform: translateX(-100%);
-        transition: all 1s;
+        height: 100%;
+        top: 0;
+        left: 0;
+        color: white;
+        text-transform: uppercase;
+        background-color: tomato;
+        transform: translateY(-100%);
+        transition: all 0.5s;
       }
 
       a:hover::before {
-        transform: translateX(0);
+        transform: translateY(0);
       }
-
-      a:hover {
-        color: white;
-      }
-
     </style>
   </head>
   <body>
-    <a href="#">Hover Me</a>
+    <a href="#">hover me</a>
   </body>
 </html>

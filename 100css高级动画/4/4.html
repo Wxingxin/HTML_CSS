@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      a {
+        width: 200px;
+        height: 80px;
+        border: 3px solid black;
+        text-decoration: none;
+        font-size: 25px;
+        text-align: center;
+        line-height: 80px;
+        color: black;
+        font-weight: bold;
+        text-transform: capitalize;
+        transition: all 0.5s;
+        position: relative;
+      }
+
+      a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: black;
+        transform: rotateX(90deg);
+        transition: all 0.5s;
+        z-index: -1;
+      }
+
+      a:hover::before {
+        transform: rotateX(0deg);
+      }
+
+      a::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: black;
+        transform: rotateY(90deg);
+        transition: all 0.5s;
+        z-index: -1;
+      }
+
+      a:hover::after {
+        transform: rotateY(0deg);
+      }
+
+      a:hover {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#">hover me</a>
+  </body>
+</html>

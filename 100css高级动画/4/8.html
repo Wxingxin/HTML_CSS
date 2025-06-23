@@ -10,64 +10,61 @@
         margin: 0;
         box-sizing: border-box;
       }
+
       body {
         height: 100vh;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
       }
 
       a {
-        padding: 40px 80px;
-        border: 5px solid black;
+        width: 230px;
+        height: 80px;
+        border: 3px solid black;
+        text-align: center;
+        line-height: 80px;
         text-decoration: none;
-        font-size: 40px;
+        font-size: 20px;
         color: black;
-        font-family: sans-serif;
         position: relative;
-        transition: all 1s;
+        overflow: hidden;
       }
 
       a::before {
-        content: "";
+        content: "hover me";
         position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
-        background-color: #262626;
-        transition: 1s;
-        transform: rotateX(90deg);
-        z-index: -1;
+        top: 0;
+        left: 0;
+        background-color: tomato;
+        transform: translate(-100%, 100%);
+        transition: all 0.3s;
       }
 
       a:hover::before {
-        transform: rotateX(0deg);
+        transform: translate(0,0);
       }
 
       a::after {
-        content: '';
+        content: "hover me";
         position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
-        background-color: #262626;
-        transition: 1s;
-        transform: rotateY(90deg);
-        z-index: -1;
-      }
+        top: 0;
+        left: 0;
+        background-color: tomato;
+        transform: translate(0, 0);
+        transition: all 0.3s;
 
+      }
       a:hover::after {
-        transform: rotateY(0deg);
-      }
-
-      a:hover {
-        color: white;
+        transform: translate(100%,-100%);
       }
     </style>
   </head>
   <body>
-    <a href="# ">Hover Me</a>
+    <a href="#">hover me</a>
   </body>
 </html>
