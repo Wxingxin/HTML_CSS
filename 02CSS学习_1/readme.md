@@ -66,12 +66,11 @@
 
 7. **伪元素选择器 (Pseudo-elements)**
 
-- ::before
-- ::after
-- ::first-letter
-- ::first-line
-- ::selection
-- ::marker (用于列表项)
+- ::before 在元素内容前插入内容
+- ::after 在元素内容后面插入内容
+- ::first-letter 选择文本的首字母
+- ::first-line 选择文本的首行
+- ::selection 选择用户选中的的文本
 - ::placeholder (用于表单输入)
 
 8. **颜色与单位 (Colors & Units)**
